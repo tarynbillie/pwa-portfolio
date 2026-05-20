@@ -2,29 +2,36 @@ const skillGroups = [
   {
     heading: 'Craft',
     items: [
-      'Cross-functional delivery',
-      'Project planning & prioritization',
-      'Stakeholder communication',
-      'Change enablement & adoption',
-      'Agile workflows',
+      'Discovery & Framing',
+      'PRD and User Story Writing',
+      'Requirements Gathering',
+      'Success Metrics Definition',
+      'Roadmap Prioritization',
+      'Competitive Analysis',
+      'Persona Development',
+      'Storytelling',
+      'AI-Assisted Prototyping',
     ],
   },
   {
     heading: 'Domain',
     items: [
-      'B2B SaaS implementations',
-      'Learning & enablement programs',
-      'System rollouts & migrations',
-      'Risk & scope management',
-      'Requirements gathering',
+      'Compliance & Regulatory Requirements',
+      'Cross-Functional Collaboration',
+      'Stakeholder Communication',
+      'Agile Environment',
+      'Problem-Solving',
+      'Customer-Centric Mindset',
+      'Customer Needs Analysis',
     ],
   },
   {
     heading: 'Tools',
     items: [
-      'Jira · Asana · Trello',
-      'Confluence · Airtable · Figma',
-      'Salesforce · Zendesk · Tableau',
+      'Claude Code',
+      'Figma',
+      'JIRA · Asana · Confluence',
+      'Salesforce',
     ],
   },
 ]
@@ -59,7 +66,7 @@ export default function About() {
           <div className="about-copy">
             <h2>I build with intention.</h2>
             <p>
-              With experience across B2B SaaS, fintech, and enterprise system
+              With experience across B2B & B2C SaaS, fintech, and enterprise system
               rollouts, I specialize in the work that makes complexity
               manageable — clear processes, aligned stakeholders, and delivery
               you can trust.
@@ -96,9 +103,8 @@ export default function About() {
           <span className="about-eyebrow">Let's talk</span>
           <h2>Open to new opportunities.</h2>
           <p>
-            If you're building something ambitious in fintech and looking for a
-            PM who cares deeply about craft and outcome — I'd love to hear from
-            you.
+            If you're building something ambitious in fintech, where empathy isn't an afterthought, it's the whole point.
+             I'd love to hear from you!
           </p>
           <a href="mailto:tarynbillie@gmail.com" className="btn btn-primary">
             tarynbillie@gmail.com

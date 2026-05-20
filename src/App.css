@@ -595,11 +595,18 @@
   margin-top: 0.5rem;
 }
 
-.work-gate-input {
+.work-gate-input-wrap {
+  position: relative;
   flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.work-gate-input {
+  width: 100%;
   font-family: var(--font);
   font-size: var(--text-md);
-  padding: 0.625rem 0.875rem;
+  padding: 0.625rem 2.5rem 0.625rem 0.875rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg);
@@ -614,6 +621,23 @@
 
 .work-gate-input--error {
   border-color: #e53e3e;
+}
+
+.work-gate-eye {
+  position: absolute;
+  right: 0.625rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--subtle);
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.work-gate-eye:hover {
+  color: var(--fg);
 }
 
 .work-gate-error {

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Eye, EyeOff } from 'lucide-react'
 
 const SESSION_KEY = 'work_unlocked'
 const PASSWORD = import.meta.env.VITE_WORK_PASSWORD ?? 'portfolio2026'
@@ -9,6 +10,7 @@ export default function WorkGate({ children }) {
   )
   const [input, setInput] = useState('')
   const [error, setError] = useState(false)
+  const [visible, setVisible] = useState(false)
 
   if (unlocked) return children
 
@@ -33,14 +35,24 @@ export default function WorkGate({ children }) {
           If you've received a password, enter it below.
         </p>
         <form className="work-gate-form" onSubmit={handleSubmit}>
-          <input
-            className={`work-gate-input${error ? ' work-gate-input--error' : ''}`}
-            type="password"
-            placeholder="Enter password"
-            value={input}
-            autoComplete="current-password"
-            onChange={(e) => { setInput(e.target.value); setError(false) }}
-          />
+          <div className="work-gate-input-wrap">
+            <input
+              className={`work-gate-input${error ? ' work-gate-input--error' : ''}`}
+              type={visible ? 'text' : 'password'}
+              placeholder="Enter password"
+              value={input}
+              autoComplete="current-password"
+              onChange={(e) => { setInput(e.target.value); setError(false) }}
+            />
+            <button
+              type="button"
+              className="work-gate-eye"
+              onClick={() => setVisible(v => !v)}
+              aria-label={visible ? 'Hide password' : 'Show password'}
+            >
+              {visible ? <EyeOff size={16} /> : <Eye size={16} />}
+            </button>
+          </div>
           <button className="btn btn-primary" type="submit">
             Unlock
           </button>
@@ -50,7 +62,7 @@ export default function WorkGate({ children }) {
         )}
         <p className="work-gate-note">
           Don't have the password? Reach out at{' '}
-          <a href="mailto:tarynbillie@gmail.com">tarynbillie@gmail.com</a>.
+          <a href="mailto:tarynbillie@gmail.com">tarynbillie@gmail.com</a>
         </p>
       </div>
     </div>

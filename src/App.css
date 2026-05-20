@@ -221,9 +221,33 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 5rem 2rem 6rem;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-text {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.hero-photo-wrap {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.hero-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%;
 }
 
 .hero-badge {
@@ -266,7 +290,15 @@
 @media (max-width: 768px) {
   .hero {
     padding: 2.5rem 1.5rem 3rem;
-    gap: 1.25rem;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-photo-wrap {
+    width: 180px;
   }
 
   .hero h1 {
@@ -351,10 +383,6 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 4rem 2rem 5rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4rem;
-  align-items: start;
 }
 
 .about-intro-text h1 {
@@ -382,19 +410,6 @@
   margin-bottom: 2rem;
 }
 
-.about-photo-wrap {
-  width: 280px;
-  flex-shrink: 0;
-}
-
-.about-photo {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%;
-}
 
 /* Intention + Skills section */
 .about-body {

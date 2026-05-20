@@ -36,7 +36,7 @@ export default function About() {
       {/* ── Intro ───────────────────────────────────────────────── */}
       <section className="about-intro">
         <div className="about-intro-text">
-          <span className="about-eyebrow">Associate Product Manager</span>
+          <span className="about-eyebrow">Product Manager</span>
           <h1>Hi, I'm Taryn.</h1>
           <p className="about-lead">
             Based in Hamilton, Ontario. I lead the kind of work that's easy to
@@ -44,19 +44,12 @@ export default function About() {
             programs that make ambitious initiatives actually land.
           </p>
           <p className="about-sub">
-            Mom of two toddlers. Watercolour painter. Cyclist. In my spare time
+            Mom of two toddlers. Watercolour painter. Cyclist. In my spare time,
             you can find me at the playground.
           </p>
-          <a href="mailto:hello@tarynreithofer.com" className="btn btn-primary about-cta">
+          <a href="mailto:tarynbillie@gmail.com" className="btn btn-primary about-cta">
             Get in touch
           </a>
-        </div>
-        <div className="about-photo-wrap">
-          <img
-            src="/taryn.png"
-            alt="Taryn Reithofer"
-            className="about-photo"
-          />
         </div>
       </section>
 
@@ -107,13 +100,13 @@ export default function About() {
             PM who cares deeply about craft and outcome — I'd love to hear from
             you.
           </p>
-          <a href="mailto:hello@tarynreithofer.com" className="btn btn-primary">
-            hello@tarynreithofer.com
+          <a href="mailto:tarynbillie@gmail.com" className="btn btn-primary">
+            tarynbillie@gmail.com
           </a>
           <div className="about-contact-links">
             <a href="https://linkedin.com/in/tarynreithofer" target="_blank" rel="noreferrer">LinkedIn</a>
             <span aria-hidden="true">·</span>
-            <a href="/resume" target="_blank" rel="noreferrer">Resume</a>
+            <a href="/taryn-reithofer-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           </div>
         </div>
       </section>

@@ -1,3 +1,10 @@
+const stats = [
+  { num: '3',   label: 'Features owned end-to-end' },
+  { num: '11',  label: 'Products benchmarked' },
+  { num: '6',   label: 'Prototypes built with AI' },
+  { num: '20%', label: 'Faster onboarding ramp' },
+]
+
 const skillGroups = [
   {
     heading: 'Craft',
@@ -40,15 +47,18 @@ export default function About() {
   return (
     <div className="about">
 
-      {/* ── Intro ───────────────────────────────────────────────── */}
+      {/* ── Intro — purple tinted with dot grid ─────────────────── */}
       <section className="about-intro">
         <div className="about-intro-text">
           <span className="about-eyebrow">Product Manager</span>
           <h1>Hi, I'm Taryn.</h1>
           <p className="about-lead">
-            Based in Hamilton, Ontario. I lead the kind of work that's easy to
-            underestimate — the implementations, rollouts, and enablement
-            programs that make ambitious initiatives actually land.
+            Based in Hamilton, Ontario. I'm a Product Manager who builds in the hard spaces
+            — regulated fintech, compliance infrastructure,
+            features where getting it wrong has real consequences.
+            I own the full lifecycle: research, requirements, and delivery, working directly with engineering, design, and compliance teams to ship things that actually hold up.
+            And I prototype my own ideas using AI tools,
+            so I'm never waiting on someone else to test what's possible.
           </p>
           <p className="about-sub">
             Mom of two toddlers. Watercolour painter. Cyclist. In my spare time,
@@ -59,6 +69,16 @@ export default function About() {
           </a>
         </div>
       </section>
+
+      {/* ── Stats strip ─────────────────────────────────────────── */}
+      <div className="about-stats">
+        {stats.map(({ num, label }) => (
+          <div key={label} className="about-stat">
+            <span className="about-stat-num">{num}</span>
+            <span className="about-stat-label">{label}</span>
+          </div>
+        ))}
+      </div>
 
       {/* ── Intention + Skills ──────────────────────────────────── */}
       <section className="about-body">
@@ -104,7 +124,7 @@ export default function About() {
           <h2>Open to new opportunities.</h2>
           <p>
             If you're building something ambitious in fintech, where empathy isn't an afterthought, it's the whole point.
-             I'd love to hear from you!
+            I'd love to hear from you!
           </p>
           <a href="mailto:tarynbillie@gmail.com" className="btn btn-primary">
             tarynbillie@gmail.com

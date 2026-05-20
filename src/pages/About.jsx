@@ -62,9 +62,9 @@ export default function About() {
 
       {/* ── Intention + Skills ──────────────────────────────────── */}
       <section className="about-body">
-        <div className="about-body-inner">
-          <div className="about-copy">
-            <h2>I build with intention.</h2>
+        <div className="about-body-copy">
+          <h2>I build with intention.</h2>
+          <div className="about-body-paras">
             <p>
               With experience across B2B & B2C SaaS, fintech, and enterprise system
               rollouts, I specialize in the work that makes complexity
@@ -81,19 +81,19 @@ export default function About() {
               anything that sits at the edge of structure and creativity.
             </p>
           </div>
+        </div>
 
-          <div className="about-skills">
-            {skillGroups.map((group) => (
-              <div key={group.heading} className="skill-group">
-                <h4 className="skill-group-label">{group.heading}</h4>
-                <ul className="skill-list">
-                  {group.items.map((item) => (
-                    <li key={item} className="skill-item">{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+        <div className="about-skills-grid">
+          {skillGroups.map((group) => (
+            <div key={group.heading} className="skill-group">
+              <h4 className="skill-group-label">{group.heading}</h4>
+              <ul className="skill-list">
+                {group.items.map((item) => (
+                  <li key={item} className="skill-item">{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
 

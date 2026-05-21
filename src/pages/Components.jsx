@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Eye, EyeOff, Github } from 'lucide-react'
+import { Eye, EyeOff, ExternalLink } from 'lucide-react'
 
 const NAV_GROUPS = [
   {
@@ -157,7 +157,7 @@ export default function Components() {
               rel="noopener noreferrer"
               className="comp-github-link"
             >
-              <Github size={14} />
+              <ExternalLink size={14} />
               View source
             </a>
           </div>

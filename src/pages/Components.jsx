@@ -122,21 +122,25 @@ export default function Components() {
         ))}
       </aside>
 
+      {/* Mobile jump-to select — outside comp-content so it spans full width */}
+      <div className="comp-mobile-nav">
+        <select
+          className="comp-mobile-select"
+          value={activeId}
+          onChange={e => scrollTo(e.target.value)}
+        >
+          {NAV_GROUPS.map(({ group, items }) => (
+            <optgroup key={group} label={group}>
+              {items.map(({ id, label }) => (
+                <option key={id} value={id}>{label}</option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+      </div>
+
       {/* ── Content ────────────────────────────────────────────── */}
       <div className="comp-content">
-
-        {/* Mobile subnav */}
-        <div className="comp-mobile-nav">
-          {ALL_SECTIONS.map(({ id, label }) => (
-            <button
-              key={id}
-              className={`comp-mobile-tab${activeId === id ? ' comp-mobile-tab--active' : ''}`}
-              onClick={() => scrollTo(id)}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
 
         {/* Page header */}
         <div className="comp-page-header">

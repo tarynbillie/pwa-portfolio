@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import WorkGate from '../components/ui/WorkGate'
 
-const caseStudyIds = ['portfolio-widget', 'email-verification', 'address-reframe']
+const caseStudyIds = ['portfolio-widget', 'settings-self-serve', 'compliance-infra']
 
 const caseStudies = [
   {
@@ -14,7 +14,7 @@ const caseStudies = [
       src: '/figjam-portfolio-widgets.png',
       caption: 'FigJam board used to scope MVP criteria for Beat the Market, Trending Swaps, and Top Movers — presented to my director before going to the CEO.',
     },
-    context: "A crypto wallet platform was introducing a biweekly feature launch cadence — shipping something small, intentional, and visible every two weeks. The portfolio widget initiative was the first major application of that cadence. No one had defined what portfolio intelligence should look like for crypto users, there was no existing benchmark, and there were no PRDs for multiple baseline features (unrealized gain/loss, cost basis, percentage allocation per asset) that every credible wallet was already shipping.",
+    context: "A crypto wallet platform was introducing a biweekly feature launch cadence — shipping something small, intentional, and visible every two weeks. The portfolio widget initiative was the first major application of that cadence. No one had defined what portfolio intelligence should look like for crypto users, there was no existing benchmark, and there were no PRDs for multiple baseline features (unrealized gain/loss, cost basis, percentage allocation per asset) that every credible wallet was already shipping. The initiative was structured around three phases: closing table stakes gaps first, then parity-plus features that do what competitors do but better, then a sprint-by-sprint differentiation layer — features that give users a reason to open the app on days when nothing in their portfolio has changed.",
     process: [
       {
         label: "Competitive benchmarking across 11 wallets",
@@ -22,82 +22,91 @@ const caseStudies = [
       },
       {
         label: "Social modelling across four personas",
-        detail: "Applied social modelling to the three prioritized features — Beat the Market, Trending Swaps, and Top Movers — stepping into each persona to simulate how they'd encounter each widget before a single line of code was written. The Crypto Curious user never sees Trending Swaps V1. Beat the Market ships descriptive-only first. Top Movers gets a friction tooltip on 'most sold' before launch.",
+        detail: "Designed a repeatable prompt framework for each user archetype — each prompt seeded with the persona's risk tolerance, crypto experience level, and primary motivation — then ran it against every feature before a single screen was designed. The Crypto Curious user never sees Trending Swaps V1. Beat the Market ships descriptive-only first. Top Movers gets a friction tooltip on 'most sold' before launch. This approach compressed what would have been weeks of research sessions into rapid, structured iteration across all persona-feature combinations.",
       },
       {
         label: "Adversarial debate framework for MVP criteria",
-        detail: "Ran pro/against debates for each priority feature — the against agent always representing the most at-risk persona. The output of each debate was the minimum feature set needed to convince the skeptic: persona gates, configurable benchmarks, opt-in toggles, explicit 'trending' definitions on the card. Upsized two features based on debate analysis. Four internal documentation pages published.",
+        detail: "Engineered a multi-round adversarial prompt structure — a pro agent advocating for shipping and a locked against agent representing the most at-risk persona — iterated for at least 10 rounds per feature until no new objections surfaced. The output was 17 minimum viable requirements across the three features: persona gates, opt-in toggles, explicit 'trending' definitions, V2 commitments required before V1 ships. Each requirement was then T-shirt sized (XS–L) and classified as sand, pebble, or rock so engineering had a clear effort signal before design kicked off. Two features were explicitly upsized as a direct result — Top Movers from XS to S, Trending Swaps from S to S–M — because the debates surfaced scope that wasn't visible in the initial estimate.",
       },
     ],
     outcomes: [
-      { num: '11', label: 'wallets benchmarked' },
-      { num: '3',  label: 'Direction 1 features scoped with MVP criteria' },
-      { num: '4',  label: 'documentation pages published' },
+      { num: '11',  label: 'wallets benchmarked' },
+      { num: '17',  label: 'minimum viable requirements defined across 3 features' },
+      { num: '3',   label: 'features placed on the roadmap' },
+      { num: '20+', label: 'features backlogged, sized, and sequenced' },
     ],
+    reflectionHeading: "What followed",
+    reflection: "After completing this discovery work, I identified portfolio intelligence as an unowned product surface — a Confluence ownership gap analysis confirmed every other major product area had an assigned PM except this one. Pitched it to my manager as a specialization area, backed by the benchmarking evidence. It became a formal part of my roadmap.",
   },
   {
-    id: 'email-verification',
+    id: 'settings-self-serve',
     tag: 'Settings',
     year: '2026',
-    title: 'Replacing a compliance workaround with a self-serve email update flow',
-    context: "The platform had no self-serve email update flow. The process users actually had to follow: create a secondary account, deliberately fail email verification, wait for a compliance handoff, and receive a manual update — up to 24 hours later. Email-related tickets represented approximately 4–10% of total support volume. For a returning user blocked before a transaction, it wasn't just friction — it was a reason to leave.",
+    title: 'Replacing compliance-gated workarounds with self-serve account management for email and phone updates',
+    context: "The same SOP governed both email and phone number updates — users had to create a secondary account, deliberately fail email verification, and wait up to 24 hours for Compliance to complete a manual update. Email-related tickets represented 4–10% of total support volume; phone accounted for another 5% through the same process. Neither flow existed as a designed product experience. For a returning user blocked before a transaction, the wait wasn't friction — it was a reason to leave.",
     process: [
       {
-        label: "Discovery brief to PRD to eight user stories",
-        detail: "Ran the full lifecycle from discovery brief through to eight published user stories — four covering the main user-facing flow, four covering internal Operator Portal and CRM sync requirements as a separate scope. Managed both scopes in parallel so engineering could plan them independently without blocking each other.",
+        label: "Paired discovery briefs, two approved PRDs",
+        detail: "Ran the full lifecycle from discovery brief through PRD for both email and phone number. Presented both features together — same philosophy, same trust moment, same root cause. Managed parallel scopes so engineering could plan each independently without blocking each other. Both PRDs approved and ready for grooming.",
       },
       {
-        label: "Key decisions that reduced build effort",
-        detail: "Two deliberate scoping decisions reduced engineering effort: the email verification screens and OTP logic from onboarding were repurposed without modification — no net-new screens required. The 24-hour cooldown mechanic was designed as a generic, reusable flag that future security-sensitive actions could reuse without rebuilding from scratch.",
+        label: "Engineering efficiency decisions built into scope",
+        detail: "Three deliberate decisions reduced build effort: email verification screens and OTP logic from onboarding were repurposed without modification — no net-new screens required. Phone number verification delegated entirely to the Sumsub SDK, which owns country code selection, format validation, auto-populate, and OTP — minimal custom build. A 24-hour cooldown mechanic was designed as a generic, reusable flag applicable to any future security-sensitive action.",
       },
       {
-        label: "Stakeholder and compliance alignment",
-        detail: "Managed design review feedback from two designers, customer success resurface of descoped items, and compliance routing requirements. Every open question was resolved at the PRD stage before engineering began. PRD status: Approved and ready for grooming.",
+        label: "Stakeholder alignment across both features",
+        detail: "Managed design review feedback from two designers, customer success resurface of descoped items, and compliance routing requirements for both flows in parallel. Every open question resolved at the PRD stage before engineering began. No compliance blockers carried into development on either feature.",
       },
     ],
     outcomes: [
-      { num: '8',    label: 'user stories published' },
+      { num: '~15%', label: 'of total support volume targeted for elimination' },
       { num: '≥95%', label: 'target self-serve verification rate' },
-      { num: '<2%',  label: 'target support ticket volume post-launch' },
+      { num: '0',    label: 'net-new verification screens required' },
     ],
   },
   {
-    id: 'address-reframe',
+    id: 'compliance-infra',
     tag: 'Compliance',
     year: '2026',
-    title: "Reframing 'address update' as geolocation re-evaluation to unlock alignment",
-    context: "The brief came in as a routine address change feature — the same friction pattern already solved for email and phone. Three stakeholder conversations in, it was clear no one agreed on what 'address update' actually meant from a compliance standpoint. The team was debating KYC verification requirements, proof-of-address documentation, and pending states that shouldn't exist. Everything was blocked.",
+    title: 'Three compliance and infrastructure initiatives — from misaligned framing to approval-ready PRDs',
+    context: "These three initiatives share a pattern: the real work happens before a single screen is designed. Address update was blocked because stakeholders were debating the wrong problem. Sumsub transaction monitoring closed an AML compliance gap that had no user-facing surface. Transaction email templates exposed an infrastructure scope risk before it became a delivery problem. In each case, the contribution was defining what the problem actually was.",
     process: [
       {
-        label: "Root cause diagnosis: wrong frame, wrong problem",
-        detail: "Traced the misalignment to a fundamental framing problem. The platform doesn't verify address authenticity — it re-evaluates user jurisdiction category on address change. These are different problems with different solutions. Retired 'verification' and 'validation' language entirely across all documentation. Landed on 'geolocation re-evaluation' as the correct frame.",
+        label: "Address update: reframing the problem unlocked alignment",
+        detail: "The brief came in as a routine address change feature. Three stakeholder conversations in, no one agreed on what 'address update' meant from a compliance standpoint — the team was debating KYC verification requirements, proof-of-address documentation, and pending states that shouldn't exist. Traced the misalignment to a fundamental framing problem: the platform doesn't verify address authenticity, it re-evaluates user jurisdiction category on address change. Retired 'verification' and 'validation' language across all documentation. That reframe resolved six of eight open compliance questions before development began. Before handing off, ran a cross-document alignment audit across the PRD and all four user stories — catching and resolving 17 inconsistencies before engineering ever saw the document.",
+        reflection: "The requirement arrived as an ambiguous roadmap item with almost no context, and I wrote the brief before fully understanding the product's compliance model. The real learning: when a roadmap item arrives without a problem statement, interrogate the frame before writing a word — not after the discovery brief alignment call.",
       },
       {
-        label: "Discovery Review call alignment",
-        detail: "Ran the Discovery Review with the reframe in place. Leadership confirmed jurisdiction re-evaluation is instantaneous — no pending state, no verification window. Proof-of-address documentation was explicitly ruled out of scope: we don't ask for it at signup, asking on update would be inconsistent. Native over web confirmed with documented rationale per an established documentation standard.",
+        label: "Sumsub transaction monitoring: closing a material AML gap",
+        detail: "RockWallet had fraud-focused monitoring via Sardine and identity verification at onboarding via Sumsub KYC — but no continuous AML transaction monitoring. A user who onboards as a school teacher and begins executing million-dollar trades wasn't flagged, because no system was watching for that pattern. Ran a coverage analysis confirming Sardine and Sumsub are complementary, not interchangeable — dual integration, not a migration. Defined the data pipeline requirements to connect RockWallet's transaction data warehouse to Sumsub's risk scoring engine. PRD drafted and presented to leadership at the March 18 Discovery Review.",
       },
       {
-        label: "Integration path and scope resolution",
-        detail: "With the reframe settled, clarified the third-party vendor role: address validation and data sync only — not a KYC or identity verification flow. The prohibited country edge case reuses the existing account-disabled flow from KYC, requiring no additional dev effort. Resolved six of eight open questions before development began.",
+        label: "Transaction email templates: scope protection and infrastructure clarity",
+        detail: "Leadership flagged an opportunity to upgrade the visual quality of transactional emails on AWS SES — a template and design initiative, not a copy rewrite. Confirmed the platform's email infrastructure stack and identified the Sumsub vs. AWS SES email scope split before it became a delivery risk. When a full copy rewrite was proposed in stakeholder review, escalated it to the room rather than resolving it unilaterally — a scope call with compliance implications isn't a PM decision to make alone. Surfaced a viable path for non-technical template editing post-launch. Brief presented at the March 25 Discovery Review. Low dev effort target maintained throughout.",
       },
     ],
     outcomes: [
-      { num: '3', label: 'stakeholder review cycles' },
-      { num: '0', label: 'open compliance blockers at PRD' },
-      { num: '6', label: 'of 8 open questions resolved pre-dev' },
+      { num: '3', label: 'initiatives from discovery brief to PRD' },
+      { num: '6', label: 'of 8 compliance blockers resolved pre-dev' },
+      { num: '0', label: 'net-new screens or design components required' },
     ],
   },
+]
+
+const navItems = [
+  ...caseStudies.map(cs => ({ id: cs.id, label: cs.tag })),
+  { id: 'prototypes', label: 'Prototypes' },
 ]
 
 export default function Work() {
   const { hash } = useLocation()
 
-  const [activeTab, setActiveTab] = useState(() => {
+  const [activeSection, setActiveSection] = useState(() => {
     const id = window.location.hash.slice(1)
-    return id === 'vault-widgets' ? 'prototypes' : 'case-studies'
+    if (id === 'vault-widgets') return 'prototypes'
+    if (caseStudyIds.includes(id)) return id
+    return caseStudyIds[0]
   })
-
-  const [pendingScroll, setPendingScroll] = useState(null)
 
   useEffect(() => {
     const meta = document.createElement('meta')
@@ -110,22 +119,11 @@ export default function Work() {
   useEffect(() => {
     if (!hash) return
     const id = hash.slice(1)
-    if (id === 'vault-widgets') {
-      setActiveTab('prototypes')
-    } else if (caseStudyIds.includes(id)) {
-      setActiveTab('case-studies')
-    }
-    setPendingScroll(id)
+    if (id === 'vault-widgets') setActiveSection('prototypes')
+    else if (caseStudyIds.includes(id)) setActiveSection(id)
   }, [hash])
 
-  useEffect(() => {
-    if (!pendingScroll) return
-    const el = document.getElementById(pendingScroll)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setPendingScroll(null)
-    }
-  }, [pendingScroll, activeTab])
+  const cs = caseStudies.find(c => c.id === activeSection)
 
   return (
     <WorkGate>
@@ -141,81 +139,88 @@ export default function Work() {
           </p>
         </div>
 
-        {/* ── Sub-nav ───────────────────────────────────────────── */}
+        {/* ── Nav ───────────────────────────────────────────────── */}
         <div className="work-subnav">
-          <button
-            className={`work-tab${activeTab === 'case-studies' ? ' work-tab--active' : ''}`}
-            onClick={() => setActiveTab('case-studies')}
-          >
-            Case Studies
-          </button>
-          <button
-            className={`work-tab${activeTab === 'prototypes' ? ' work-tab--active' : ''}`}
-            onClick={() => setActiveTab('prototypes')}
-          >
-            Prototypes
-          </button>
+          {navItems.map(({ id, label }) => (
+            <button
+              key={id}
+              className={`work-tab${activeSection === id ? ' work-tab--active' : ''}`}
+              onClick={() => setActiveSection(id)}
+            >
+              {label}
+            </button>
+          ))}
         </div>
 
-        {/* ── Case studies ──────────────────────────────────────── */}
-        {activeTab === 'case-studies' && (
+        {/* ── Case study ────────────────────────────────────────── */}
+        {activeSection !== 'prototypes' && cs && (
           <div className="case-studies">
-            {caseStudies.map((cs, i) => (
-              <section key={cs.id} id={cs.id} className="case-study">
-                <div className="case-study-inner">
+            <section id={cs.id} className="case-study">
+              <div className="case-study-inner">
 
-                  <div className="case-study-header">
-                    <div className="case-study-meta">
-                      <span className="case-study-tag">{cs.tag}</span>
-                      <span className="case-study-year">{cs.year}</span>
-                    </div>
-                    <h2 className="case-study-title">{cs.title}</h2>
+                <div className="case-study-header">
+                  <div className="case-study-meta">
+                    <span className="case-study-tag">{cs.tag}</span>
+                    <span className="case-study-year">{cs.year}</span>
                   </div>
-
-                  {cs.artifact && (
-                    <figure className="case-study-artifact">
-                      <img src={cs.artifact.src} alt={cs.artifact.caption} />
-                      <figcaption className="case-study-artifact-caption">{cs.artifact.caption}</figcaption>
-                    </figure>
-                  )}
-
-                  <div className="case-study-body">
-                    <div className="case-study-left">
-                      <p className="case-study-context">{cs.context}</p>
-
-                      <div className="case-study-process">
-                        <h3 className="case-study-process-heading">What I did</h3>
-                        {cs.process.map(({ label, detail }) => (
-                          <div key={label} className="case-study-step">
-                            <span className="case-study-step-label">{label}</span>
-                            <p className="case-study-step-detail">{detail}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="case-study-right">
-                      <h3 className="case-study-outcomes-heading">Outcomes</h3>
-                      <div className="case-study-outcomes">
-                        {cs.outcomes.map(({ num, label }) => (
-                          <div key={label} className="case-study-outcome">
-                            <span className="case-study-outcome-num">{num}</span>
-                            <span className="case-study-outcome-label">{label}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
+                  <h2 className="case-study-title">{cs.title}</h2>
                 </div>
-                {i < caseStudies.length - 1 && <div className="case-study-divider" />}
-              </section>
-            ))}
+
+                {cs.artifact && (
+                  <figure className="case-study-artifact">
+                    <img src={cs.artifact.src} alt={cs.artifact.caption} />
+                    <figcaption className="case-study-artifact-caption">{cs.artifact.caption}</figcaption>
+                  </figure>
+                )}
+
+                <div className="case-study-body">
+                  <div className="case-study-left">
+                    <p className="case-study-context">{cs.context}</p>
+
+                    <div className="case-study-process">
+                      <h3 className="case-study-process-heading">What I did</h3>
+                      {cs.process.map(({ label, detail, reflection }) => (
+                        <div key={label} className="case-study-step">
+                          <span className="case-study-step-label">{label}</span>
+                          <p className="case-study-step-detail">{detail}</p>
+                          {reflection && (
+                            <div className="case-study-reflection case-study-reflection--inline">
+                              <h3 className="case-study-reflection-heading">What I'd do differently</h3>
+                              <p className="case-study-reflection-body">{reflection}</p>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+
+                    {cs.reflection && (
+                      <div className="case-study-reflection">
+                        <h3 className="case-study-reflection-heading">{cs.reflectionHeading ?? "What I'd do differently"}</h3>
+                        <p className="case-study-reflection-body">{cs.reflection}</p>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="case-study-right">
+                    <h3 className="case-study-outcomes-heading">Outcomes</h3>
+                    <div className="case-study-outcomes">
+                      {cs.outcomes.map(({ num, label }) => (
+                        <div key={label} className="case-study-outcome">
+                          <span className="case-study-outcome-num">{num}</span>
+                          <span className="case-study-outcome-label">{label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </section>
           </div>
         )}
 
         {/* ── Prototypes ────────────────────────────────────────── */}
-        {activeTab === 'prototypes' && (
+        {activeSection === 'prototypes' && (
           <div className="work-prototypes">
             <div className="proto-entry" id="vault-widgets">
               <div className="proto-entry-left">
@@ -229,6 +234,9 @@ export default function Work() {
                   built from priorities surfaced during competitive benchmarking.
                   The "What If" Simulator, Rebalance Preview, and Streak &amp; Milestones widgets
                   each target a specific persona and risk level, informed by the social modelling work.
+                </p>
+                <p className="proto-entry-desc">
+                  Built by connecting Claude to the product's Figma design system — prompting against real component tokens and design patterns to generate UI that reflects the actual product language. Adapted here for portfolio presentation.
                 </p>
               </div>
               <div className="proto-iframe-wrap">

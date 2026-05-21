@@ -140,16 +140,18 @@ export default function Work() {
         </div>
 
         {/* ── Nav ───────────────────────────────────────────────── */}
-        <div className="work-subnav">
-          {navItems.map(({ id, label }) => (
-            <button
-              key={id}
-              className={`work-tab${activeSection === id ? ' work-tab--active' : ''}`}
-              onClick={() => setActiveSection(id)}
-            >
-              {label}
-            </button>
-          ))}
+        <div className="work-subnav-wrap">
+          <div className="work-subnav">
+            {navItems.map(({ id, label }) => (
+              <button
+                key={id}
+                className={`work-tab${activeSection === id ? ' work-tab--active' : ''}`}
+                onClick={() => setActiveSection(id)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* ── Case study ────────────────────────────────────────── */}

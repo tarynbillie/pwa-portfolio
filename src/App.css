@@ -744,12 +744,15 @@
 
 /* ── Work sub-nav ────────────────────────────────────────────── */
 
-.work-subnav {
+.work-subnav-wrap {
   position: sticky;
   top: var(--nav-height);
   z-index: 10;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
+}
+
+.work-subnav {
   display: flex;
   padding: 0 clamp(2rem, 8vw, 8rem);
 }
@@ -777,9 +780,25 @@
 }
 
 @media (max-width: 768px) {
-  .work-subnav {
-    padding: 0 1rem;
+  .work-subnav-wrap {
     top: 0;
+    position: relative;
+  }
+
+  .work-subnav-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3rem;
+    background: linear-gradient(to right, transparent, var(--bg));
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .work-subnav {
+    padding: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -789,10 +808,21 @@
     display: none;
   }
 
+  .work-subnav::after {
+    content: '';
+    min-width: 2rem;
+    display: block;
+    flex-shrink: 0;
+  }
+
   .work-tab {
     white-space: nowrap;
     padding: 0.75rem 1rem;
     font-size: var(--text-sm);
+  }
+
+  .work-tab:first-child {
+    margin-left: 1rem;
   }
 }
 

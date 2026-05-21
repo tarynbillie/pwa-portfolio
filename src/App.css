@@ -796,6 +796,28 @@
   max-width: 36ch;
 }
 
+.case-study-artifact {
+  margin: 2rem 0 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.case-study-artifact img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.case-study-artifact-caption {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.6;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
 .case-study-body {
   display: grid;
   grid-template-columns: 1fr 340px;

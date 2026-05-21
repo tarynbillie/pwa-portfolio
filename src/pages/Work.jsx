@@ -10,6 +10,10 @@ const caseStudies = [
     tag: 'Discovery',
     year: '2026',
     title: "Defining a fintech platform's first portfolio intelligence features from scratch",
+    artifact: {
+      src: '/figjam-portfolio-widgets.png',
+      caption: 'FigJam board used to scope MVP criteria for Beat the Market, Trending Swaps, and Top Movers — presented to my director before going to the CEO.',
+    },
     context: "A crypto wallet platform was introducing a biweekly feature launch cadence — shipping something small, intentional, and visible every two weeks. The portfolio widget initiative was the first major application of that cadence. No one had defined what portfolio intelligence should look like for crypto users, there was no existing benchmark, and there were no PRDs for multiple baseline features (unrealized gain/loss, cost basis, percentage allocation per asset) that every credible wallet was already shipping.",
     process: [
       {
@@ -167,6 +171,13 @@ export default function Work() {
                     </div>
                     <h2 className="case-study-title">{cs.title}</h2>
                   </div>
+
+                  {cs.artifact && (
+                    <figure className="case-study-artifact">
+                      <img src={cs.artifact.src} alt={cs.artifact.caption} />
+                      <figcaption className="case-study-artifact-caption">{cs.artifact.caption}</figcaption>
+                    </figure>
+                  )}
 
                   <div className="case-study-body">
                     <div className="case-study-left">

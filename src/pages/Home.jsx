@@ -4,36 +4,27 @@ const featured = {
   tag: 'Discovery',
   year: '2026',
   title: "Defining a fintech platform's first portfolio intelligence features from scratch",
-  body: "Finance users wanted more than a balance view — they wanted signal. I ran a competitive benchmarking sweep across eleven wallets and crypto apps, applied an Opportunity Solution Tree to map the opportunity space, and surfaced three high-confidence priority widgets to bring into scoping.",
+  body: "No benchmarks, no PRDs, no defined ownership. I ran a competitive sweep across eleven wallets, modelled features against four user personas, and used an adversarial debate framework to define minimum viable requirements — placing three features on the roadmap and backlogging 20+ more.",
   metrics: [
-    { num: '11', label: 'products benchmarked' },
-    { num: '3',  label: 'priority widgets' },
-    { num: '4',  label: 'documentation pages published' },
+    { num: '11',  label: 'wallets benchmarked' },
+    { num: '20+', label: 'features backlogged and sequenced' },
   ],
 }
 
 const caseStudies = [
   {
-    slug: 'email-verification',
+    slug: 'settings-self-serve',
     tag: 'Settings',
     year: '2026',
-    title: 'Full PM lifecycle for a compliance-adjacent email verification flow',
-    body: 'Email updates touch authentication, compliance routing, and user trust all at once. I ran this from discovery brief to eight published user stories — managing a separate Operator Portal scope alongside the main PRD and resolving edge cases before they reached engineering.',
-    metrics: [
-      { num: '8', label: 'user stories shipped' },
-      { num: '2', label: 'scopes: user & operator' },
-    ],
+    title: 'Replacing compliance-gated workarounds with self-serve account management',
+    body: 'Email and phone updates required a manual Compliance workaround — up to 24 hours, no self-serve path. I ran the full PM lifecycle for both features in parallel, with engineering efficiency built in from day one.',
   },
   {
-    slug: 'address-reframe',
+    slug: 'compliance-infra',
     tag: 'Compliance',
     year: '2026',
-    title: "Reframing 'address update' as geolocation re-evaluation to unlock alignment",
-    body: 'The brief started as a routine field update. Working through compliance requirements, I identified that the platform re-evaluates user jurisdiction on address change — not address authenticity. That reframe eliminated a pending state conflict and gave every stakeholder a shared mental model.',
-    metrics: [
-      { num: '3', label: 'stakeholder review cycles' },
-      { num: '0', label: 'open compliance blockers at PRD' },
-    ],
+    title: 'Three compliance and infrastructure initiatives — from misaligned framing to approval-ready PRDs',
+    body: 'Address update, AML transaction monitoring, and transaction email templates. In each case, the real contribution was identifying what the problem actually was before anyone designed a single screen.',
   },
 ]
 
@@ -41,7 +32,7 @@ export default function Home() {
   return (
     <div>
 
-      {/* ── Hero — purple dot-grid ───────────────────────────────── */}
+      {/* ── Hero ────────────────────────────────────────────────── */}
       <div className="hero-wrap">
         <div className="hero">
           <div className="hero-content">
@@ -49,8 +40,9 @@ export default function Home() {
               <span className="hero-badge">Product Manager</span>
               <h1>Hi, I'm Taryn</h1>
               <p>
-                This is my living portfolio of UI components, interactive prototypes, and real projects —
-                built to explore ideas, sharpen craft, and document the work. I'm so happy you're here!
+                This is my living portfolio of UI components, interactive prototypes, and real
+                projects — built to explore ideas, sharpen craft, and document the work.
+                I'm so happy you're here!
               </p>
               <div className="hero-actions">
                 <Link to="/work" className="btn btn-primary">View work</Link>
@@ -58,11 +50,7 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-photo-wrap">
-              <img
-                src="/taryn.png"
-                alt="Taryn Reithofer"
-                className="hero-photo"
-              />
+              <img src="/taryn.png" alt="Taryn Reithofer" className="hero-photo" />
             </div>
           </div>
         </div>
@@ -92,27 +80,23 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Link to="/work#portfolio-widget" className="work-card-link work-card-link--light">Read case study →</Link>
+              <Link to="/work#portfolio-widget" className="work-card-link work-card-link--light">
+                Read case study →
+              </Link>
             </article>
 
             {/* Secondary cards */}
             {caseStudies.map((cs) => (
-              <article key={cs.tag} className="work-card">
+              <article key={cs.slug} className="work-card">
                 <div className="work-card-meta">
                   <span className="work-card-tag">{cs.tag}</span>
                   <span className="work-card-year">{cs.year}</span>
                 </div>
                 <h3 className="work-card-title">{cs.title}</h3>
                 <p className="work-card-body">{cs.body}</p>
-                <div className="work-card-metrics">
-                  {cs.metrics.map(({ num, label }) => (
-                    <div key={label}>
-                      <span className="work-card-metric-num">{num}</span>
-                      <span className="work-card-metric-label">{label}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link to={`/work#${cs.slug}`} className="work-card-link">Read case study →</Link>
+                <Link to={`/work#${cs.slug}`} className="work-card-link">
+                  Read case study →
+                </Link>
               </article>
             ))}
 

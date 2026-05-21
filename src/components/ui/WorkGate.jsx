@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
 
 const SESSION_KEY = 'work_unlocked'
-const PASSWORD = import.meta.env.VITE_WORK_PASSWORD ?? 'portfolio2026'
+const PASSWORD = import.meta.env.VITE_WORK_PASSWORD ?? ''
 
 export default function WorkGate({ children }) {
   const [unlocked, setUnlocked] = useState(

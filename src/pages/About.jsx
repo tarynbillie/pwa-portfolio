@@ -51,13 +51,12 @@ export default function About() {
       <section className="about-intro">
         <div className="about-intro-text">
           <span className="about-eyebrow">Product Manager</span>
-          <h1>Hi, I'm Taryn.</h1>
+          <h1>I build in the hard spaces.</h1>
           <p className="about-lead">
-            Based in Hamilton, Ontario. I'm a Product Manager who builds in the hard spaces
-            — regulated fintech, compliance infrastructure,
-            features where getting it wrong has real consequences.
-            I own the full lifecycle: research, requirements, and delivery, working directly with engineering, design, and compliance teams to ship things that actually hold up.
-            And I prototype my own ideas using AI tools,
+            Regulated fintech, compliance infrastructure, features where getting it wrong has real
+            consequences. Based in Hamilton, Ontario — I own the full lifecycle: research,
+            requirements, and delivery, working directly with engineering, design, and compliance
+            teams to ship things that actually hold up. And I prototype my own ideas using AI tools,
             so I'm never waiting on someone else to test what's possible.
           </p>
           <p className="about-sub">

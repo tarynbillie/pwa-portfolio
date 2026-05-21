@@ -123,8 +123,7 @@ export default function About() {
           <span className="about-eyebrow">Let's talk</span>
           <h2>Open to new opportunities.</h2>
           <p>
-            If you're building something ambitious in fintech, where empathy isn't an afterthought, it's the whole point.
-            I'd love to hear from you!
+            If you're building something ambitious in fintech — where empathy isn't an afterthought, it's the whole point — I'd love to hear from you.
           </p>
           <a href="mailto:tarynbillie@gmail.com" className="btn btn-primary">
             tarynbillie@gmail.com

@@ -15,25 +15,27 @@ export default function Nav() {
       {/* Desktop top nav */}
       <nav className="nav nav-top">
         <Link to="/" className="nav-logo">Taryn Reithofer</Link>
-        <div className="nav-links">
-          {links.filter(l => l.to !== '/').map(({ to, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-            >
-              {label}
-            </NavLink>
-          ))}
+        <div className="nav-right">
+          <div className="nav-links">
+            {links.filter(l => l.to !== '/').map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+              >
+                {label}
+              </NavLink>
+            ))}
+          </div>
+          <a
+            href="https://www.linkedin.com/messaging/compose/?recipient=tarynreithofer"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary nav-cta"
+          >
+            Get in touch
+          </a>
         </div>
-        <a
-          href="https://www.linkedin.com/messaging/compose/?recipient=tarynreithofer"
-          target="_blank"
-          rel="noreferrer"
-          className="btn btn-primary nav-cta"
-        >
-          Get in touch
-        </a>
       </nav>
 
       {/* Mobile bottom tab bar */}

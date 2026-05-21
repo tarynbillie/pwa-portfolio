@@ -65,7 +65,12 @@ export default function About() {
               Mom of two toddlers. Watercolour painter. Cyclist. In my spare time,
               you can find me at the playground.
             </p>
-            <a href="mailto:tarynbillie@gmail.com" className="btn btn-primary about-cta">
+            <a
+              href="https://www.linkedin.com/messaging/compose/?recipient=tarynreithofer"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary about-cta"
+            >
               Get in touch
             </a>
           </div>

@@ -29,6 +29,17 @@ This project mixes Tailwind v4 utilities (in `.tsx` components) with hand-writte
 
 **Debugging rule:** If a Tailwind utility appears to have no effect, check computed styles in DevTools before changing markup. If the computed value is `0` or a reset value despite a utility class being present, the cause is almost certainly a cascade/layer conflict — diagnose that first, do not add more utility classes or wrappers.
 
+# Collaboration Rules
+
+- **Ask before building.** For any UI feature or placement decision, propose the approach in one sentence and get alignment before writing code. Don't default to the most complex solution.
+- **One proposal, not a survey.** Never use a question widget for micro-copy, one-line design decisions, or placement choices. State the best option directly and execute it.
+- **Check layout in context before presenting.** If interactive elements sit close together, verify they don't overlap or clip before showing the result. Don't make the user find obvious bugs.
+- **Flag environment constraints upfront.** If something only works in the production build, in a specific browser, or at a specific viewport — say so before the user tries to test it.
+- **Placement decisions require buy-in first.** Ask where something should live and how prominent it should feel *before* implementing. Don't move things reactively across multiple iterations.
+- **Match tone to context.** This is a professional PM portfolio targeting fintech hiring managers. Emoji, "P.S.", and casual/playful framing are wrong register unless explicitly requested.
+- **No inline SVG icons in body text.** Lucide icons in running text look awkward — baseline alignment and stroke weight rarely work at small sizes without significant CSS gymnastics.
+- **Always QA mobile before pushing.** Every UI or CSS change must be checked at mobile viewport before committing.
+
 # Safety and Behavioral Rules
 - **Environment Variables:** NEVER read or edit `.env` files. Use `process.env` only.
 - **Secrets:** NEVER hardcode API keys, secrets, or tokens.

@@ -2,7 +2,7 @@ const stats = [
   { num: '5',   label: 'Features owned end-to-end' },
   { num: '20+', label: 'Features backlogged, sized, and sequenced' },
   { num: '6',   label: 'Prototypes built with AI' },
-  { num: '11',  label: 'Products competitively benchmarked' },
+  { num: '11',  label: 'Wallets competitively benchmarked' },
 ]
 
 const skillGroups = [
@@ -26,8 +26,8 @@ const skillGroups = [
       'Compliance & Regulatory Requirements',
       'Cross-Functional Collaboration',
       'Stakeholder Communication',
-      'Agile Environment',
-      'Problem-Solving',
+      'Discovery Facilitation',
+      'Sprint Planning',
       'Customer-Centric Mindset',
       'Customer Needs Analysis',
     ],
@@ -61,7 +61,7 @@ export default function About() {
             design, and compliance teams to ship things that actually hold up.
           </p>
           <p className="about-lead">
-            I bring a calm, systems-focused approach. The projects I'm most proud of are the ones
+            I bring a calm, systems-focused approach. The features and projects I'm most proud of are the ones
             that left teams and customers better than I found them — and because I prototype with
             AI, I'm never waiting on someone else to test what's possible.
           </p>
@@ -114,10 +114,17 @@ export default function About() {
           <p>
             If you're building something ambitious in fintech — where empathy isn't an afterthought, it's the whole point — I'd love to hear from you.
           </p>
-          <a href="mailto:tarynbillie@gmail.com" className="btn btn-primary">
-            tarynbillie@gmail.com
+          <a
+            href="https://www.linkedin.com/messaging/compose/?recipient=tarynreithofer"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary"
+          >
+            Get in touch
           </a>
           <div className="about-contact-links">
+            <a href="mailto:tarynbillie@gmail.com">tarynbillie@gmail.com</a>
+            <span aria-hidden="true">·</span>
             <a href="https://linkedin.com/in/tarynreithofer" target="_blank" rel="noreferrer">LinkedIn</a>
             <span aria-hidden="true">·</span>
             <a href="https://github.com/tarynbillie" target="_blank" rel="noreferrer">GitHub</a>

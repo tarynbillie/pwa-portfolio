@@ -44,6 +44,10 @@ export default function Home() {
                 projects — built to explore ideas, sharpen craft, and document the work.
                 I'm so happy you're here!
               </p>
+              <p className="hero-pwa-note">
+                This portfolio is a PWA — install it on your phone like a native app.
+                <span className="hero-pwa-steps">iOS: Share → Add to Home Screen · Android: ⋮ → Add to Home Screen</span>
+              </p>
               <div className="hero-actions">
                 <Link to="/work" className="btn btn-primary">View work</Link>
                 <Link to="/about" className="btn btn-secondary">About me</Link>
@@ -54,19 +58,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* ── PWA callout ─────────────────────────────────────────── */}
-      <div className="pwa-callout">
-        <span className="pwa-callout-badge">PWA</span>
-        <p className="pwa-callout-text">
-          This portfolio is a Progressive Web App — if you'd like to test my build, open it on your phone and add it to your home screen for the full mobile experience.
-          <span className="pwa-callout-steps">
-            <span><strong>iOS:</strong> tap Share → Add to Home Screen</span>
-            <span className="pwa-callout-divider" aria-hidden="true">·</span>
-            <span><strong>Android:</strong> tap ⋮ → Add to Home Screen</span>
-          </span>
-        </p>
       </div>
 
       {/* ── Featured Work ────────────────────────────────────────── */}

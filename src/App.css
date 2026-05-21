@@ -305,6 +305,19 @@
   padding-top: 0.5rem;
 }
 
+.hero-pwa-note {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.hero-pwa-steps {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--subtle);
+  margin-top: 0.25rem;
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 2.5rem 1.5rem 3rem;
@@ -337,6 +350,14 @@
   padding: 0.875rem 2rem;
   background: var(--color-brand-50);
   border-bottom: 1px solid var(--color-brand-100);
+}
+
+.pwa-callout--inline {
+  background: transparent;
+  border: 1px solid var(--color-brand-100);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  margin-top: 1.5rem;
 }
 
 .pwa-callout-badge {
@@ -1423,6 +1444,13 @@
 
 .about-contact-links a:hover {
   color: var(--color-white);
+}
+
+.contact-pwa-note {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 1.5rem;
+  line-height: 1.5;
 }
 
 /* About responsive */

@@ -1686,6 +1686,24 @@
 
 .comp-type-sample { color: var(--fg); line-height: 1.2; }
 
+/* ── Outcome demo layout ─────────────────────────────────────── */
+
+.comp-outcome-demo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.comp-outcome-frame {
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .comp-outcome-demo {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Mobile ──────────────────────────────────────────────────── */
 
 @media (max-width: 768px) {

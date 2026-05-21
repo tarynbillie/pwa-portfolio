@@ -404,9 +404,9 @@ export default function Components() {
             </p>
           </div>
 
-          <div className="comp-stage">
-            <div className="comp-frame">
-              <div className="case-study-outcomes" style={{ width: 220 }}>
+          <div className="comp-stage comp-outcome-demo">
+            <div className="comp-frame comp-outcome-frame">
+              <div className="case-study-outcomes">
                 <div className="case-study-outcome">
                   <span className="case-study-outcome-num">11</span>
                   <span className="case-study-outcome-label">wallets benchmarked</span>
@@ -423,8 +423,8 @@ export default function Components() {
               <span className="comp-frame-label">3-item vertical stack</span>
             </div>
 
-            <div className="comp-frame">
-              <div className="case-study-outcomes" style={{ width: 220 }}>
+            <div className="comp-frame comp-outcome-frame">
+              <div className="case-study-outcomes">
                 <div className="case-study-outcome">
                   <span className="case-study-outcome-num">11</span>
                   <span className="case-study-outcome-label">wallets benchmarked</span>

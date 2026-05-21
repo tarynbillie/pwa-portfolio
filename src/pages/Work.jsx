@@ -86,9 +86,9 @@ const caseStudies = [
       },
     ],
     outcomes: [
-      { num: '3', label: 'initiatives from discovery brief to PRD' },
-      { num: '6', label: 'of 8 compliance blockers resolved pre-dev' },
-      { num: '0', label: 'net-new screens or design components required' },
+      { num: '1',  label: 'active AML compliance gap remediated — high-value trades were going unflagged' },
+      { num: '17', label: 'cross-document inconsistencies resolved before engineering handoff' },
+      { num: '6',  label: 'of 8 compliance blockers resolved before development began' },
     ],
   },
 ]

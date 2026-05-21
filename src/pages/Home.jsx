@@ -56,6 +56,19 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ── PWA callout ─────────────────────────────────────────── */}
+      <div className="pwa-callout">
+        <span className="pwa-callout-badge">PWA</span>
+        <p className="pwa-callout-text">
+          This portfolio is a Progressive Web App — if you'd like to test my build, open it on your phone and add it to your home screen for the full mobile experience.
+          <span className="pwa-callout-steps">
+            <span><strong>iOS:</strong> tap Share → Add to Home Screen</span>
+            <span className="pwa-callout-divider" aria-hidden="true">·</span>
+            <span><strong>Android:</strong> tap ⋮ → Add to Home Screen</span>
+          </span>
+        </p>
+      </div>
+
       {/* ── Featured Work ────────────────────────────────────────── */}
       <section className="home-work">
         <div className="home-work-inner">

@@ -54,14 +54,20 @@ export default function About() {
           <h1>I build in the hard spaces.</h1>
           <p className="about-lead">
             Regulated fintech, compliance infrastructure, features where getting it wrong has real
-            consequences. Based in Hamilton, Ontario — I own the full lifecycle: research,
-            requirements, and delivery, working directly with engineering, design, and compliance
-            teams to ship things that actually hold up. And I prototype my own ideas using AI tools,
-            so I'm never waiting on someone else to test what's possible.
+            consequences. With experience across B2B & B2C SaaS,
+            fintech, and enterprise system rollouts, I specialize in making complexity manageable:
+            clear processes, aligned stakeholders, and delivery you can trust. I own the full
+            lifecycle — research, requirements, and delivery — working directly with engineering,
+            design, and compliance teams to ship things that actually hold up.
+          </p>
+          <p className="about-lead">
+            I bring a calm, systems-focused approach. The projects I'm most proud of are the ones
+            that left teams and customers better than I found them — and because I prototype with
+            AI, I'm never waiting on someone else to test what's possible.
           </p>
           <p className="about-sub">
-            Mom of two toddlers. Watercolour painter. Cyclist. In my spare time,
-            you can find me at the playground.
+            Located in Hamilton, Ontario. Mom of two toddlers. Watercolour painter. Cyclist. In my spare time,
+            you can find me at the playground, splash pad, or community garden.
           </p>
           <a
             href="https://www.linkedin.com/messaging/compose/?recipient=tarynreithofer"
@@ -84,29 +90,8 @@ export default function About() {
         ))}
       </div>
 
-      {/* ── Intention + Skills ──────────────────────────────────── */}
+      {/* ── Skills ──────────────────────────────────────────────── */}
       <section className="about-body">
-        <div className="about-body-copy">
-          <h2>I build with intention.</h2>
-          <div className="about-body-paras">
-            <p>
-              With experience across B2B & B2C SaaS, fintech, and enterprise system
-              rollouts, I specialize in the work that makes complexity
-              manageable — clear processes, aligned stakeholders, and delivery
-              you can trust.
-            </p>
-            <p>
-              I bring a calm, systems-focused approach to cross-functional work.
-              The projects I'm most proud of are the ones that ran smoothly,
-              landed well, and left teams better than I found them.
-            </p>
-            <p>
-              I'm drawn to design, data, systems thinking, and
-              anything that sits at the edge of structure and creativity.
-            </p>
-          </div>
-        </div>
-
         <div className="about-skills-grid">
           {skillGroups.map((group) => (
             <div key={group.heading} className="skill-group">

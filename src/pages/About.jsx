@@ -49,24 +49,29 @@ export default function About() {
 
       {/* ── Intro — purple tinted with dot grid ─────────────────── */}
       <section className="about-intro">
-        <div className="about-intro-text">
-          <span className="about-eyebrow">Product Manager</span>
-          <h1>Hi, I'm Taryn.</h1>
-          <p className="about-lead">
-            Based in Hamilton, Ontario. I'm a Product Manager who builds in the hard spaces
-            — regulated fintech, compliance infrastructure,
-            features where getting it wrong has real consequences.
-            I own the full lifecycle: research, requirements, and delivery, working directly with engineering, design, and compliance teams to ship things that actually hold up.
-            And I prototype my own ideas using AI tools,
-            so I'm never waiting on someone else to test what's possible.
-          </p>
-          <p className="about-sub">
-            Mom of two toddlers. Watercolour painter. Cyclist. In my spare time,
-            you can find me at the playground.
-          </p>
-          <a href="mailto:tarynbillie@gmail.com" className="btn btn-primary about-cta">
-            Get in touch
-          </a>
+        <div className="about-intro-inner">
+          <div className="about-intro-text">
+            <span className="about-eyebrow">Product Manager</span>
+            <h1>Hi, I'm Taryn.</h1>
+            <p className="about-lead">
+              Based in Hamilton, Ontario. I'm a Product Manager who builds in the hard spaces
+              — regulated fintech, compliance infrastructure,
+              features where getting it wrong has real consequences.
+              I own the full lifecycle: research, requirements, and delivery, working directly with engineering, design, and compliance teams to ship things that actually hold up.
+              And I prototype my own ideas using AI tools,
+              so I'm never waiting on someone else to test what's possible.
+            </p>
+            <p className="about-sub">
+              Mom of two toddlers. Watercolour painter. Cyclist. In my spare time,
+              you can find me at the playground.
+            </p>
+            <a href="mailto:tarynbillie@gmail.com" className="btn btn-primary about-cta">
+              Get in touch
+            </a>
+          </div>
+          <div className="hero-photo-wrap">
+            <img src="/taryn.png" alt="Taryn Reithofer" className="hero-photo" />
+          </div>
         </div>
       </section>
 
@@ -97,7 +102,7 @@ export default function About() {
               landed well, and left teams better than I found them.
             </p>
             <p>
-              Outside of work, I'm drawn to design, systems thinking, and
+              I'm drawn to design, data, systems thinking, and
               anything that sits at the edge of structure and creativity.
             </p>
           </div>

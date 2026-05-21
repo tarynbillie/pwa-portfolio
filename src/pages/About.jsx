@@ -1,8 +1,8 @@
 const stats = [
-  { num: '3',   label: 'Features owned end-to-end' },
-  { num: '11',  label: 'Products benchmarked' },
-  { num: '6',   label: 'Prototypes built with AI' },
-  { num: '20%', label: 'Faster onboarding ramp' },
+  { num: '5',   label: 'Features owned end-to-end' },
+  { num: '20+', label: 'Features backlogged, sized, and sequenced' },
+  { num: '3',   label: 'Compliance initiatives unblocked through framing' },
+  { num: '0',   label: 'Compliance blockers carried into development' },
 ]
 
 const skillGroups = [

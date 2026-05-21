@@ -17,14 +17,14 @@ const caseStudies = [
     tag: 'Settings',
     year: '2026',
     title: 'Replacing compliance-gated workarounds with self-serve account management',
-    body: 'Email and phone updates required a manual Compliance workaround — up to 24 hours, no self-serve path. I ran the full PM lifecycle for both features in parallel, with engineering efficiency built in from day one.',
+    body: 'Two account management features with no self-serve path and significant compliance surface. I ran the full PM lifecycle for both in parallel, with engineering efficiency decisions built into scope from day one.',
   },
   {
     slug: 'compliance-infra',
     tag: 'Compliance',
     year: '2026',
     title: 'Three compliance and infrastructure initiatives — from misaligned framing to approval-ready PRDs',
-    body: 'Address update, AML transaction monitoring, and transaction email templates. In each case, the real contribution was identifying what the problem actually was before anyone designed a single screen.',
+    body: 'Three initiatives where the real work happened before design started. In each case, the contribution was identifying what the problem actually was — and reframing it so the right solution became obvious.',
   },
 ]
 

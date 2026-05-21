@@ -816,6 +816,26 @@ input[type=range]:active::-webkit-slider-thumb {
   background: var(--border-primary);
   margin: 0;
 }
+
+/* ─── Label column — light bg overrides ─── */
+/* Phone frames stay dark; only the label col sits on the white page bg */
+.label-col .widget-index { color: #667085; }
+.label-col .widget-title { color: #101828; }
+.label-col .widget-desc  { color: #475467; }
+.label-col .widget-badge {
+  background: rgba(2,122,72,0.08);
+  border-color: rgba(2,122,72,0.20);
+  color: #027A48;
+}
+.label-col .user-tag {
+  background: #F2F4F7;
+  border-color: rgba(0,0,0,0.08);
+  color: #344054;
+}
+.label-col .user-tag-avatar {
+  background: #E4E7EC;
+  color: #027A48;
+}
 </style>
 </head>
 <body>

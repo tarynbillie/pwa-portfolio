@@ -132,6 +132,8 @@ export default function About() {
           <div className="about-contact-links">
             <a href="https://linkedin.com/in/tarynreithofer" target="_blank" rel="noreferrer">LinkedIn</a>
             <span aria-hidden="true">·</span>
+            <a href="https://github.com/tarynbillie" target="_blank" rel="noreferrer">GitHub</a>
+            <span aria-hidden="true">·</span>
             <a href="/taryn-reithofer-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           </div>
         </div>

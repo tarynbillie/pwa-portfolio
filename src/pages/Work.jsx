@@ -1,6 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import WorkGate from '../components/ui/WorkGate'
+
+const caseStudyIds = ['portfolio-widget', 'email-verification', 'address-reframe']
 
 const caseStudies = [
   {
@@ -16,11 +18,11 @@ const caseStudies = [
       },
       {
         label: "Social modelling across four personas",
-        detail: "Applied social modelling to the three Direction 1 features — Beat the Market, Trending Swaps, and Top Movers — stepping into each persona to simulate how they'd encounter each widget before a single line of code was written. The Crypto Curious user never sees Trending Swaps V1. Beat the Market ships descriptive-only first. Top Movers gets a friction tooltip on 'most sold' before launch.",
+        detail: "Applied social modelling to the three prioritized features — Beat the Market, Trending Swaps, and Top Movers — stepping into each persona to simulate how they'd encounter each widget before a single line of code was written. The Crypto Curious user never sees Trending Swaps V1. Beat the Market ships descriptive-only first. Top Movers gets a friction tooltip on 'most sold' before launch.",
       },
       {
         label: "Adversarial debate framework for MVP criteria",
-        detail: "Ran pro/against debates for each Direction 1 feature — the against agent always representing the most at-risk persona. The output of each debate was the minimum feature set needed to convince the skeptic: persona gates, configurable benchmarks, opt-in toggles, explicit 'trending' definitions on the card. Upsized two features based on debate analysis. Four internal documentation pages published.",
+        detail: "Ran pro/against debates for each priority feature — the against agent always representing the most at-risk persona. The output of each debate was the minimum feature set needed to convince the skeptic: persona gates, configurable benchmarks, opt-in toggles, explicit 'trending' definitions on the card. Upsized two features based on debate analysis. Four internal documentation pages published.",
       },
     ],
     outcomes: [
@@ -86,8 +88,14 @@ const caseStudies = [
 export default function Work() {
   const { hash } = useLocation()
 
+  const [activeTab, setActiveTab] = useState(() => {
+    const id = window.location.hash.slice(1)
+    return id === 'vault-widgets' ? 'prototypes' : 'case-studies'
+  })
+
+  const [pendingScroll, setPendingScroll] = useState(null)
+
   useEffect(() => {
-    // noindex — this page is password-protected unpublished work
     const meta = document.createElement('meta')
     meta.name = 'robots'
     meta.content = 'noindex, nofollow'
@@ -97,9 +105,23 @@ export default function Work() {
 
   useEffect(() => {
     if (!hash) return
-    const el = document.getElementById(hash.slice(1))
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const id = hash.slice(1)
+    if (id === 'vault-widgets') {
+      setActiveTab('prototypes')
+    } else if (caseStudyIds.includes(id)) {
+      setActiveTab('case-studies')
+    }
+    setPendingScroll(id)
   }, [hash])
+
+  useEffect(() => {
+    if (!pendingScroll) return
+    const el = document.getElementById(pendingScroll)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      setPendingScroll(null)
+    }
+  }, [pendingScroll, activeTab])
 
   return (
     <WorkGate>
@@ -115,53 +137,99 @@ export default function Work() {
           </p>
         </div>
 
-        {/* ── Case studies ──────────────────────────────────────── */}
-        <div className="case-studies">
-          {caseStudies.map((cs, i) => (
-            <section key={cs.id} id={cs.id} className="case-study">
-              <div className="case-study-inner">
-
-                <div className="case-study-header">
-                  <div className="case-study-meta">
-                    <span className="case-study-tag">{cs.tag}</span>
-                    <span className="case-study-year">{cs.year}</span>
-                  </div>
-                  <h2 className="case-study-title">{cs.title}</h2>
-                </div>
-
-                <div className="case-study-body">
-                  <div className="case-study-left">
-                    <p className="case-study-context">{cs.context}</p>
-
-                    <div className="case-study-process">
-                      <h3 className="case-study-process-heading">What I did</h3>
-                      {cs.process.map(({ label, detail }) => (
-                        <div key={label} className="case-study-step">
-                          <span className="case-study-step-label">{label}</span>
-                          <p className="case-study-step-detail">{detail}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="case-study-right">
-                    <h3 className="case-study-outcomes-heading">Outcomes</h3>
-                    <div className="case-study-outcomes">
-                      {cs.outcomes.map(({ num, label }) => (
-                        <div key={label} className="case-study-outcome">
-                          <span className="case-study-outcome-num">{num}</span>
-                          <span className="case-study-outcome-label">{label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              {i < caseStudies.length - 1 && <div className="case-study-divider" />}
-            </section>
-          ))}
+        {/* ── Sub-nav ───────────────────────────────────────────── */}
+        <div className="work-subnav">
+          <button
+            className={`work-tab${activeTab === 'case-studies' ? ' work-tab--active' : ''}`}
+            onClick={() => setActiveTab('case-studies')}
+          >
+            Case Studies
+          </button>
+          <button
+            className={`work-tab${activeTab === 'prototypes' ? ' work-tab--active' : ''}`}
+            onClick={() => setActiveTab('prototypes')}
+          >
+            Prototypes
+          </button>
         </div>
+
+        {/* ── Case studies ──────────────────────────────────────── */}
+        {activeTab === 'case-studies' && (
+          <div className="case-studies">
+            {caseStudies.map((cs, i) => (
+              <section key={cs.id} id={cs.id} className="case-study">
+                <div className="case-study-inner">
+
+                  <div className="case-study-header">
+                    <div className="case-study-meta">
+                      <span className="case-study-tag">{cs.tag}</span>
+                      <span className="case-study-year">{cs.year}</span>
+                    </div>
+                    <h2 className="case-study-title">{cs.title}</h2>
+                  </div>
+
+                  <div className="case-study-body">
+                    <div className="case-study-left">
+                      <p className="case-study-context">{cs.context}</p>
+
+                      <div className="case-study-process">
+                        <h3 className="case-study-process-heading">What I did</h3>
+                        {cs.process.map(({ label, detail }) => (
+                          <div key={label} className="case-study-step">
+                            <span className="case-study-step-label">{label}</span>
+                            <p className="case-study-step-detail">{detail}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="case-study-right">
+                      <h3 className="case-study-outcomes-heading">Outcomes</h3>
+                      <div className="case-study-outcomes">
+                        {cs.outcomes.map(({ num, label }) => (
+                          <div key={label} className="case-study-outcome">
+                            <span className="case-study-outcome-num">{num}</span>
+                            <span className="case-study-outcome-label">{label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                {i < caseStudies.length - 1 && <div className="case-study-divider" />}
+              </section>
+            ))}
+          </div>
+        )}
+
+        {/* ── Prototypes ────────────────────────────────────────── */}
+        {activeTab === 'prototypes' && (
+          <div className="work-prototypes">
+            <div className="proto-entry" id="vault-widgets">
+              <div className="proto-entry-left">
+                <div className="proto-entry-meta">
+                  <span className="case-study-tag">Portfolio Intelligence</span>
+                  <span className="case-study-year">2026</span>
+                </div>
+                <h3 className="proto-entry-title">Home Screen Widgets — "Play Around" Concept</h3>
+                <p className="proto-entry-desc">
+                  Three interactive widgets exploring engagement features for a crypto wallet,
+                  built from priorities surfaced during competitive benchmarking.
+                  The "What If" Simulator, Rebalance Preview, and Streak &amp; Milestones widgets
+                  each target a specific persona and risk level, informed by the social modelling work.
+                </p>
+              </div>
+              <div className="proto-iframe-wrap">
+                <iframe
+                  src="/prototypes/vault-widgets-portfolio.html"
+                  className="proto-iframe"
+                  title="Home Screen Widgets Prototype"
+                />
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </WorkGate>

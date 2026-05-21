@@ -26,6 +26,14 @@ export default function Nav() {
             </NavLink>
           ))}
         </div>
+        <a
+          href="https://www.linkedin.com/messaging/compose/?recipient=tarynreithofer"
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-primary nav-cta"
+        >
+          Get in touch
+        </a>
       </nav>
 
       {/* Mobile bottom tab bar */}

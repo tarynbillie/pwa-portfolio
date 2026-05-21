@@ -782,47 +782,20 @@
 @media (max-width: 768px) {
   .work-subnav-wrap {
     top: 0;
-    position: relative;
-  }
-
-  .work-subnav-wrap::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 3rem;
-    background: linear-gradient(to right, transparent, var(--bg));
-    pointer-events: none;
-    z-index: 1;
   }
 
   .work-subnav {
     padding: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .work-subnav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .work-subnav::after {
-    content: '';
-    min-width: 2rem;
-    display: block;
-    flex-shrink: 0;
+    width: 100%;
   }
 
   .work-tab {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.75rem 0.25rem;
     white-space: nowrap;
-    padding: 0.75rem 1rem;
-    font-size: var(--text-sm);
-  }
-
-  .work-tab:first-child {
-    margin-left: 1rem;
   }
 }
 

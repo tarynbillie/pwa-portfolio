@@ -167,13 +167,21 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 0.375rem;
-  padding-top: calc(0.375rem + 6px);
   min-width: 230px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease, transform 0.15s ease;
   z-index: 200;
+}
+
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
 }
 
 .nav-dropdown-wrap:hover .nav-dropdown {
@@ -298,7 +306,7 @@
   background-color: var(--color-brand-50);
   background-image: radial-gradient(var(--color-brand-200) 1px, transparent 1px);
   background-size: 24px 24px;
-  min-height: calc(100dvh - var(--nav-height));
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
 }
@@ -936,7 +944,13 @@
   background-color: var(--color-brand-50);
   background-image: radial-gradient(var(--color-brand-200) 1px, transparent 1px);
   background-size: 24px 24px;
-  padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 8vw, 8rem);
+  padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+.work-page-header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 8vw, 8rem);
 }
 
 .work-page-eyebrow {
@@ -1146,9 +1160,9 @@
 }
 
 .case-study-context {
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   color: var(--muted);
-  line-height: 1.75;
+  line-height: 1.7;
   margin-bottom: 2.5rem;
 }
 
@@ -1201,6 +1215,45 @@
   color: var(--muted);
   line-height: 1.7;
   font-style: italic;
+}
+
+.case-study-context-block {
+  margin-bottom: 1.5rem;
+}
+
+.case-study-context-block .case-study-context {
+  margin-bottom: 1rem;
+}
+
+.case-study-context-block .case-study-context:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-takeaway {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--color-brand-50);
+  border: 1px solid var(--color-brand-200);
+  border-radius: var(--radius-lg);
+}
+
+.case-study-takeaway-heading {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.case-study-takeaway-body {
+  font-size: var(--text-md);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.case-study-takeaway-body + .case-study-takeaway-body {
+  margin-top: 1rem;
 }
 
 .case-study-right {
@@ -1263,7 +1316,11 @@
 
 @media (max-width: 768px) {
   .work-page-header {
-    padding: 3rem 1.5rem;
+    padding: 3rem 0;
+  }
+
+  .work-page-header-inner {
+    padding: 0 1.5rem;
   }
 
   .work-page-title {

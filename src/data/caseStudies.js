@@ -10,7 +10,12 @@ export const caseStudies = [
       src: '/figjam-portfolio-widgets.png',
       caption: 'FigJam board used to scope MVP criteria for Beat the Market, Trending Swaps, and Top Movers — presented to my director before going to the CEO.',
     },
-    context: "A crypto wallet platform was introducing a biweekly feature launch cadence — shipping something small, intentional, and visible every two weeks. The portfolio widget initiative was the first major application of that cadence. No one had defined what portfolio intelligence should look like for crypto users, there was no existing benchmark, and there were no PRDs for multiple baseline features (unrealized gain/loss, cost basis, percentage allocation per asset) that every credible wallet was already shipping. The initiative was structured around three phases: closing table stakes gaps first, then parity-plus features that do what competitors do but better, then a sprint-by-sprint differentiation layer — features that give users a reason to open the app on days when nothing in their portfolio has changed.",
+    contextLabel: 'Opportunity',
+    contextParagraphs: [
+      "A crypto wallet platform was introducing a biweekly feature launch cadence — shipping something small, intentional, and visible every two weeks. The portfolio widget initiative was the first major application of that cadence.",
+      "No one had defined what portfolio intelligence should look like for crypto users. There was no existing benchmark, and no PRDs for multiple baseline features — unrealized gain/loss, cost basis, percentage allocation per asset — that every credible wallet was already shipping.",
+      "The initiative was structured around three phases: closing table stakes gaps first, then parity-plus features that do what competitors do but better, then a sprint-by-sprint differentiation layer — features that give users a reason to open the app on days when nothing in their portfolio has changed.",
+    ],
     process: [
       {
         label: "Competitive benchmarking across 11 wallets",
@@ -33,6 +38,7 @@ export const caseStudies = [
     ],
     reflectionHeading: "What followed",
     reflection: "After completing this discovery work, I identified portfolio intelligence as an unowned product surface — a Confluence ownership gap analysis confirmed every other major product area had an assigned PM except this one. Pitched it to my manager as a specialization area, backed by the benchmarking evidence. It became a formal part of my roadmap.",
+    personalTakeaway: "Identifying an unowned product surface and building the business case to own it was the most consequential move I made this cycle. I went in thinking the benchmarking was just research. It ended up being the thing that made the ownership conversation impossible to ignore. I learned that the PM contribution isn't always in the PRD. Sometimes it's in the org chart conversation that happens before one is written.\n\nWhat I carry forward: most teams have surfaces nobody owns but everybody depends on. I've gotten good at spotting those early, and using the benchmarking work as the thing that makes the conversation impossible to sidestep. That's honestly where I think I add the most value — finding what's falling through the cracks before it becomes someone's emergency.",
   },
   {
     id: 'settings-self-serve',
@@ -41,7 +47,12 @@ export const caseStudies = [
     tag: 'Settings',
     year: '2026',
     title: 'Replacing compliance-gated workarounds with self-serve account management for email and phone updates',
-    context: "The same SOP governed both email and phone number updates — users had to create a secondary account, deliberately fail email verification, and wait up to 24 hours for Compliance to complete a manual update. Email-related tickets represented 4–10% of total support volume; phone accounted for another 5% through the same process. Neither flow existed as a designed product experience. For a returning user blocked before a transaction, the wait wasn't friction — it was a reason to leave.",
+    contextLabel: 'The Problem',
+    contextParagraphs: [
+      "The same SOP governed both email and phone number updates — users had to create a secondary account, deliberately fail email verification, and wait up to 24 hours for Compliance to complete a manual update.",
+      "Email-related tickets represented 4–10% of total support volume; phone accounted for another 5% through the same process. Neither flow existed as a designed product experience.",
+      "For a returning user blocked before a transaction, the wait wasn't friction — it was a reason to leave.",
+    ],
     process: [
       {
         label: "Paired discovery briefs, two approved PRDs",
@@ -61,6 +72,7 @@ export const caseStudies = [
       { num: '≥95%', label: 'target self-serve verification rate' },
       { num: '0',    label: 'net-new verification screens required' },
     ],
+    personalTakeaway: "Running two parallel feature lifecycles simultaneously sharpened how I think about scope boundaries. The instinct to merge them into one project was real — same trust moment, same root cause — but keeping them separate gave engineering clean, independently plannable work. I left this one with a stronger lens on efficiency as a PM responsibility, not just an engineering concern.\n\nWhat I carry forward: sloppy scope boundaries are expensive, and that cost usually lands on engineering. I now think about how a feature is structured as part of the PM job, not something to sort out later. And before I write a single requirement, I'm asking what already exists in the product that solves part of this — because the 0 net-new screens result didn't come from good design, it came from asking that question early enough. That kind of thinking compounds. Every unnecessary build you avoid is time and budget that goes toward something that actually moves the needle.",
   },
   {
     id: 'compliance-infra',
@@ -69,7 +81,12 @@ export const caseStudies = [
     tag: 'Compliance',
     year: '2026',
     title: 'Three compliance and infrastructure initiatives — from misaligned framing to approval-ready PRDs',
-    context: "These three initiatives share a pattern: the real work happens before a single screen is designed. Address update was blocked because stakeholders were debating the wrong problem. Sumsub transaction monitoring closed an AML compliance gap that had no user-facing surface. Transaction email templates exposed an infrastructure scope risk before it became a delivery problem. In each case, the contribution was defining what the problem actually was.",
+    contextLabel: 'The Problem',
+    contextParagraphs: [
+      "These three initiatives share a pattern: the real work happens before a single screen is designed.",
+      "Address update was blocked because stakeholders were debating the wrong problem. Sumsub transaction monitoring closed an AML compliance gap that had no user-facing surface. Transaction email templates exposed an infrastructure scope risk before it became a delivery problem.",
+      "In each case, the contribution was defining what the problem actually was — and reframing it so the right solution became obvious.",
+    ],
     process: [
       {
         label: "Address update: reframing the problem unlocked alignment",
@@ -90,5 +107,6 @@ export const caseStudies = [
       { num: '17', label: 'cross-document inconsistencies resolved before engineering handoff' },
       { num: '6',  label: 'of 8 compliance blockers resolved before development began' },
     ],
+    personalTakeaway: "The common thread across these three was learning to resist the pull toward the solution. Each arrived as a \"what.\" The PM work was converting it to a \"why\" before anything was written — and in the address update case, retiring the wrong framing entirely. I came out of this quarter with a more disciplined instinct for interrogating the problem statement before engaging with scope.\n\nWhat I carry forward: the most expensive problems a product team faces are usually the ones nobody spotted early enough. A misframed brief, an undetected compliance gap, a scope split that becomes a delivery crisis — none of those are engineering problems, they're PM problems that showed up late. I've gotten a lot more comfortable sitting in the discomfort of \"I don't think we've framed this right yet\" before moving forward, because that discomfort is almost always cheaper than what comes after.",
   },
 ]

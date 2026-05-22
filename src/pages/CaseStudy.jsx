@@ -40,11 +40,13 @@ export default function CaseStudy() {
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <div className="work-page-header">
-          <div className="cs-hero-meta">
-            <span className="work-page-eyebrow">RockWallet</span>
-            <span className="case-study-year">{cs.year}</span>
+          <div className="work-page-header-inner">
+            <div className="cs-hero-meta">
+              <span className="work-page-eyebrow">RockWallet</span>
+              <span className="case-study-year">{cs.year}</span>
+            </div>
+            <h1 className="cs-hero-title">{cs.title}</h1>
           </div>
-          <h1 className="cs-hero-title">{cs.title}</h1>
         </div>
 
         {/* ── Case study body ───────────────────────────────────── */}
@@ -52,17 +54,18 @@ export default function CaseStudy() {
           <section id={cs.id} className="case-study">
             <div className="case-study-inner">
 
-              {cs.artifact && (
-                <figure className="case-study-artifact">
-                  <img src={cs.artifact.src} alt={cs.artifact.caption} />
-                  <figcaption className="case-study-artifact-caption">{cs.artifact.caption}</figcaption>
-                </figure>
-              )}
-
               <div className="case-study-body">
                 <div className="case-study-left">
-                  <p className="case-study-context">{cs.context}</p>
 
+                  {/* Context */}
+                  <div className="case-study-context-block">
+                    <h3 className="case-study-process-heading">{cs.contextLabel ?? 'Opportunity'}</h3>
+                    {cs.contextParagraphs.map((p, i) => (
+                      <p key={i} className="case-study-context">{p}</p>
+                    ))}
+                  </div>
+
+                  {/* Process */}
                   <div className="case-study-process">
                     <h3 className="case-study-process-heading">What I did</h3>
                     {cs.process.map(({ label, detail, reflection }) => (
@@ -79,12 +82,40 @@ export default function CaseStudy() {
                     ))}
                   </div>
 
+                  {/* Artifact — inside What I did */}
+                  {cs.artifact && (
+                    <figure className="case-study-artifact">
+                      <img src={cs.artifact.src} alt={cs.artifact.caption} />
+                      <figcaption className="case-study-artifact-caption">{cs.artifact.caption}</figcaption>
+                    </figure>
+                  )}
+
+                  {/* Reflection */}
                   {cs.reflection && (
                     <div className="case-study-reflection">
                       <h3 className="case-study-reflection-heading">{cs.reflectionHeading ?? "What I'd do differently"}</h3>
                       <p className="case-study-reflection-body">{cs.reflection}</p>
                     </div>
                   )}
+
+                  {/* Personal takeaway */}
+                  {cs.personalTakeaway && (
+                    <div className="case-study-takeaway">
+                      <h3 className="case-study-takeaway-heading">Personal Takeaway</h3>
+                      {cs.personalTakeaway.split('\n\n').map((p, i) => {
+                        const prefix = 'What I carry forward:'
+                        if (p.startsWith(prefix)) {
+                          return (
+                            <p key={i} className="case-study-takeaway-body">
+                              <strong>{prefix}</strong>{p.slice(prefix.length)}
+                            </p>
+                          )
+                        }
+                        return <p key={i} className="case-study-takeaway-body">{p}</p>
+                      })}
+                    </div>
+                  )}
+
                 </div>
 
                 <div className="case-study-right">
@@ -123,7 +154,6 @@ export default function CaseStudy() {
 
       </div>
 
-      {/* ── Scroll to top ─────────────────────────────────────── */}
       <button
         className={`scroll-top-btn${showScrollTop ? ' scroll-top-btn--visible' : ''}`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

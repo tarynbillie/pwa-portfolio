@@ -16,11 +16,13 @@ export default function WorkPrototypes() {
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <div className="work-page-header">
-          <span className="work-page-eyebrow">RockWallet</span>
-          <h1 className="work-page-title">Prototypes</h1>
-          <p className="work-page-lead">
-            Interactive explorations built with AI — connecting Claude to the product's Figma design system to generate UI that reflects the actual product language.
-          </p>
+          <div className="work-page-header-inner">
+            <span className="work-page-eyebrow">RockWallet</span>
+            <h1 className="work-page-title">Prototypes</h1>
+            <p className="work-page-lead">
+              Interactive explorations built with AI — connecting Claude to the product's Figma design system to generate UI that reflects the actual product language.
+            </p>
+          </div>
         </div>
 
         {/* ── Prototype entries ─────────────────────────────────── */}

@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom'
 
+const stats = [
+  { num: '5',   label: 'Features owned end-to-end' },
+  { num: '20+', label: 'Features backlogged, sized, and sequenced' },
+  { num: '6',   label: 'Prototypes built with AI' },
+  { num: '11',  label: 'Wallets competitively benchmarked' },
+]
+
 const featured = {
   slug: 'portfolio-intelligence',
-  tag: 'Discovery',
+  tag: 'Portfolio Intelligence',
   year: '2026',
   title: "Defining a fintech platform's first portfolio intelligence features from scratch",
   body: "No benchmarks, no PRDs, no defined ownership. I ran a competitive sweep across eleven wallets, modelled features against four user personas, and used an adversarial debate framework to define minimum viable requirements — placing three features on the roadmap and backlogging 20+ more.",
@@ -15,14 +22,14 @@ const featured = {
 const caseStudies = [
   {
     slug: 'account-management',
-    tag: 'Settings',
+    tag: 'Account Management',
     year: '2026',
     title: 'Replacing compliance-gated workarounds with self-serve account management',
     body: 'Two account management features with no self-serve path and significant compliance surface. I ran the full PM lifecycle for both in parallel, with engineering efficiency decisions built into scope from day one.',
   },
   {
     slug: 'compliance-infrastructure',
-    tag: 'Compliance',
+    tag: 'Compliance & Infrastructure',
     year: '2026',
     title: 'Three compliance and infrastructure initiatives — from misaligned framing to approval-ready PRDs',
     body: 'Three initiatives where the real work happened before design started. In each case, the contribution was identifying what the problem actually was — and reframing it so the right solution became obvious.',
@@ -55,6 +62,16 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* ── Stats strip ─────────────────────────────────────────── */}
+      <div className="about-stats">
+        {stats.map(({ num, label }) => (
+          <div key={label} className="about-stat">
+            <span className="about-stat-num">{num}</span>
+            <span className="about-stat-label">{label}</span>
+          </div>
+        ))}
       </div>
 
       {/* ── Featured Work ────────────────────────────────────────── */}

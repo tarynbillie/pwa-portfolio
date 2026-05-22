@@ -1,10 +1,3 @@
-const stats = [
-  { num: '5',   label: 'Features owned end-to-end' },
-  { num: '20+', label: 'Features backlogged, sized, and sequenced' },
-  { num: '6',   label: 'Prototypes built with AI' },
-  { num: '11',  label: 'Wallets competitively benchmarked' },
-]
-
 const skillGroups = [
   {
     heading: 'Craft',
@@ -79,16 +72,6 @@ export default function About() {
           </a>
         </div>
       </section>
-
-      {/* ── Stats strip ─────────────────────────────────────────── */}
-      <div className="about-stats">
-        {stats.map(({ num, label }) => (
-          <div key={label} className="about-stat">
-            <span className="about-stat-num">{num}</span>
-            <span className="about-stat-label">{label}</span>
-          </div>
-        ))}
-      </div>
 
       {/* ── Skills ──────────────────────────────────────────────── */}
       <section className="about-body">

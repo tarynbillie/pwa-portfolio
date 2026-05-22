@@ -1181,11 +1181,14 @@
 
 .case-study-step {
   padding: 1.25rem 0;
-  border-top: 1px solid var(--border);
 }
 
-.case-study-step:last-child {
-  border-bottom: 1px solid var(--border);
+.case-study-process-heading + .case-study-step {
+  padding-top: 0;
+}
+
+.case-study-step + .case-study-step {
+  border-top: 1px solid var(--border);
 }
 
 .case-study-step-label {
@@ -1220,7 +1223,7 @@
 }
 
 .case-study-context-block {
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .case-study-context-block .case-study-context {
@@ -1617,7 +1620,7 @@
 /* Contact section */
 .about-contact {
   background: var(--color-neutral-900);
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
 }
 
 .about-contact-inner {

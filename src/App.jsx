@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Nav from './components/layout/Nav'
+import Footer from './components/layout/Footer'
 import Home from './pages/Home'
 import Components from './pages/Components'
 import CaseStudy from './pages/CaseStudy'
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/prototypes" element={<Navigate to="/work/prototypes" replace />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   )
 }

@@ -142,7 +142,7 @@ export default function CaseStudy() {
             {others.map(other => (
               <Link key={other.slug} to={`/work/${other.slug}`} className="cs-next-card">
                 <div className="cs-next-meta">
-                  <span className="case-study-tag">{other.tag}</span>
+                  <span className="case-study-tag">{other.navLabel}</span>
                   <span className="case-study-year">{other.year}</span>
                 </div>
                 <h4 className="cs-next-title">{other.title}</h4>

@@ -12,19 +12,23 @@ const NAV_GROUPS = [
   {
     group: 'Elements',
     items: [
-      { id: 'buttons',  label: 'Buttons' },
-      { id: 'inputs',   label: 'Inputs' },
-      { id: 'tags',     label: 'Tags & Labels' },
-      { id: 'tabs',     label: 'Tabs' },
-      { id: 'divider',  label: 'Divider' },
+      { id: 'buttons',    label: 'Buttons' },
+      { id: 'inputs',     label: 'Inputs' },
+      { id: 'tags',       label: 'Tags & Labels' },
+      { id: 'hero-badge', label: 'Hero Badge' },
+      { id: 'scroll-top', label: 'Scroll to Top' },
     ],
   },
   {
     group: 'Patterns',
     items: [
-      { id: 'outcome-stat',  label: 'Outcome Stat' },
-      { id: 'process-step',  label: 'Process Step' },
-      { id: 'work-gate',     label: 'Work Gate' },
+      { id: 'work-card',    label: 'Work Card' },
+      { id: 'stat',         label: 'Stat' },
+      { id: 'outcome-stat', label: 'Outcome Stat' },
+      { id: 'process-step', label: 'Process Step' },
+      { id: 'takeaway',     label: 'Personal Takeaway' },
+      { id: 'case-nav-card', label: 'Case Study Nav Card' },
+      { id: 'work-gate',    label: 'Work Gate' },
     ],
   },
 ]
@@ -349,15 +353,15 @@ export default function Components() {
 
           <div className="comp-stage">
             <div className="comp-frame">
-              <span className="case-study-tag">Discovery</span>
+              <span className="case-study-tag">Portfolio Intelligence</span>
               <span className="comp-frame-label">.case-study-tag</span>
             </div>
             <div className="comp-frame">
-              <span className="case-study-tag">Settings</span>
+              <span className="case-study-tag">Account Management</span>
               <span className="comp-frame-label">.case-study-tag</span>
             </div>
             <div className="comp-frame">
-              <span className="case-study-tag">Compliance</span>
+              <span className="case-study-tag">Compliance &amp; Infrastructure</span>
               <span className="comp-frame-label">.case-study-tag</span>
             </div>
             <div className="comp-frame">
@@ -367,42 +371,146 @@ export default function Components() {
           </div>
         </section>
 
-        {/* ── Tabs ────────────────────────────────────────────── */}
-        <section id="tabs" className="comp-section">
+        {/* ── Hero Badge ──────────────────────────────────────── */}
+        <section id="hero-badge" className="comp-section">
           <div className="comp-section-header">
             <p className="comp-section-eyebrow">Elements</p>
-            <h2 className="comp-section-title">Tabs</h2>
+            <h2 className="comp-section-title">Hero Badge</h2>
             <p className="comp-section-desc">
-              Underline-style navigation used in the Work section subnav. Scrolls horizontally on
-              mobile with a hidden scrollbar.
+              Role pill shown above the headline in the Home and About heroes. Uses the brand-100
+              background with brand-700 text.
             </p>
           </div>
 
-          <div className="comp-stage comp-stage--col" style={{ padding: 0, background: 'none', border: 'none', gap: '0.75rem' }}>
-            <div style={{ borderBottom: '1px solid var(--border)', display: 'flex' }}>
-              <button className="work-tab work-tab--active">Discovery</button>
-              <button className="work-tab">Settings</button>
-              <button className="work-tab">Compliance</button>
-              <button className="work-tab">Prototypes</button>
+          <div className="comp-stage">
+            <div className="comp-frame">
+              <span className="hero-badge">Product Manager</span>
+              <span className="comp-frame-label">.hero-badge</span>
             </div>
-            <div style={{ display: 'flex', gap: '1.5rem' }}>
-              <span className="comp-frame-label">.work-tab</span>
-              <span className="comp-frame-label">.work-tab.work-tab--active</span>
+            <div className="comp-frame">
+              <span className="about-eyebrow">Product Manager</span>
+              <span className="comp-frame-label">.about-eyebrow</span>
             </div>
           </div>
         </section>
 
-        {/* ── Divider ─────────────────────────────────────────── */}
-        <section id="divider" className="comp-section">
+        {/* ── Scroll to Top ───────────────────────────────────── */}
+        <section id="scroll-top" className="comp-section">
           <div className="comp-section-header">
             <p className="comp-section-eyebrow">Elements</p>
-            <h2 className="comp-section-title">Divider</h2>
-            <p className="comp-section-desc">A 1px horizontal rule using the border token.</p>
+            <h2 className="comp-section-title">Scroll to Top</h2>
+            <p className="comp-section-desc">
+              Fixed button that fades in after 400px of scroll. Present on the Components and Case
+              Study pages.
+            </p>
+          </div>
+
+          <div className="comp-stage">
+            <div className="comp-frame">
+              <button
+                className="scroll-top-btn scroll-top-btn--visible"
+                style={{ position: 'static', transform: 'none', opacity: 1, pointerEvents: 'none' }}
+                aria-label="Scroll to top"
+                tabIndex={-1}
+              >
+                <ArrowUp size={18} strokeWidth={2} />
+              </button>
+              <span className="comp-frame-label">.scroll-top-btn.scroll-top-btn--visible</span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Work Card ───────────────────────────────────────── */}
+        <section id="work-card" className="comp-section">
+          <div className="comp-section-header">
+            <p className="comp-section-eyebrow">Patterns</p>
+            <h2 className="comp-section-title">Work Card</h2>
+            <p className="comp-section-desc">
+              Case study preview cards used on the home page. Featured variant is dark with inline
+              metrics; secondary is surface-white.
+            </p>
           </div>
 
           <div className="comp-stage comp-stage--col">
-            <hr className="divider" style={{ width: '100%' }} />
-            <span className="comp-frame-label">.divider</span>
+            <div className="comp-frame" style={{ width: '100%' }}>
+              <article className="work-card work-card--featured" style={{ width: '100%' }}>
+                <div className="work-card-meta">
+                  <span className="work-card-tag work-card-tag--light">Portfolio Intelligence</span>
+                  <span className="work-card-year work-card-year--light">2026</span>
+                </div>
+                <h3 className="work-card-title work-card-title--light">
+                  Defining a fintech platform's first portfolio intelligence features from scratch
+                </h3>
+                <p className="work-card-body work-card-body--light">
+                  No benchmarks, no PRDs, no defined ownership. Competitive sweep across eleven
+                  wallets, modelled against four user personas.
+                </p>
+                <div className="work-card-metrics work-card-metrics--dark">
+                  <div>
+                    <span className="work-card-metric-num work-card-metric-num--light">11</span>
+                    <span className="work-card-metric-label work-card-metric-label--light">wallets benchmarked</span>
+                  </div>
+                  <div>
+                    <span className="work-card-metric-num work-card-metric-num--light">20+</span>
+                    <span className="work-card-metric-label work-card-metric-label--light">features backlogged</span>
+                  </div>
+                </div>
+                <span className="work-card-link work-card-link--light">Read case study →</span>
+              </article>
+              <span className="comp-frame-label">.work-card.work-card--featured</span>
+            </div>
+
+            <div className="comp-frame" style={{ width: '100%' }}>
+              <article className="work-card" style={{ width: '100%' }}>
+                <div className="work-card-meta">
+                  <span className="work-card-tag">Account Management</span>
+                  <span className="work-card-year">2026</span>
+                </div>
+                <h3 className="work-card-title">
+                  Replacing compliance-gated workarounds with self-serve account management
+                </h3>
+                <p className="work-card-body">
+                  Two account management features with no self-serve path and significant compliance
+                  surface.
+                </p>
+                <span className="work-card-link">Read case study →</span>
+              </article>
+              <span className="comp-frame-label">.work-card</span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Stat ────────────────────────────────────────────── */}
+        <section id="stat" className="comp-section">
+          <div className="comp-section-header">
+            <p className="comp-section-eyebrow">Patterns</p>
+            <h2 className="comp-section-title">Stat</h2>
+            <p className="comp-section-desc">
+              Numeric highlight strip rendered below the home page hero. Four stats in a horizontal
+              row, stacking to two columns on mobile.
+            </p>
+          </div>
+
+          <div className="comp-stage comp-stage--col" style={{ padding: 0, background: 'none', border: 'none', gap: '0.75rem' }}>
+            <div className="about-stats" style={{ width: '100%' }}>
+              <div className="about-stat">
+                <span className="about-stat-num">5</span>
+                <span className="about-stat-label">Features owned end-to-end</span>
+              </div>
+              <div className="about-stat">
+                <span className="about-stat-num">20+</span>
+                <span className="about-stat-label">Features backlogged, sized, and sequenced</span>
+              </div>
+              <div className="about-stat">
+                <span className="about-stat-num">6</span>
+                <span className="about-stat-label">Prototypes built with AI</span>
+              </div>
+              <div className="about-stat">
+                <span className="about-stat-num">11</span>
+                <span className="about-stat-label">Wallets competitively benchmarked</span>
+              </div>
+            </div>
+            <span className="comp-frame-label">.about-stats / .about-stat</span>
           </div>
         </section>
 
@@ -493,6 +601,63 @@ export default function Components() {
                   alignment call.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Personal Takeaway ───────────────────────────────── */}
+        <section id="takeaway" className="comp-section">
+          <div className="comp-section-header">
+            <p className="comp-section-eyebrow">Patterns</p>
+            <h2 className="comp-section-title">Personal Takeaway</h2>
+            <p className="comp-section-desc">
+              Brand-tinted card at the end of each case study. "What I carry forward:" is bolded for
+              scanability.
+            </p>
+          </div>
+
+          <div className="comp-stage comp-stage--col">
+            <div className="case-study-takeaway" style={{ width: '100%' }}>
+              <h3 className="case-study-takeaway-heading">Personal Takeaway</h3>
+              <p className="case-study-takeaway-body">
+                Working in ambiguity was the biggest unlock. When there's no existing benchmark or
+                PRD, you have to build your own frame before you can answer the question — and
+                learning to do that confidently was the real output of this project.
+              </p>
+              <p className="case-study-takeaway-body">
+                <strong>What I carry forward:</strong> Structure the problem before you solve it.
+                The competitive sweep, the persona modelling, the debate framework — none of it was
+                prescribed. I built the method to fit the problem.
+              </p>
+            </div>
+            <span className="comp-frame-label">.case-study-takeaway</span>
+          </div>
+        </section>
+
+        {/* ── Case Study Nav Card ──────────────────────────────── */}
+        <section id="case-nav-card" className="comp-section">
+          <div className="comp-section-header">
+            <p className="comp-section-eyebrow">Patterns</p>
+            <h2 className="comp-section-title">Case Study Nav Card</h2>
+            <p className="comp-section-desc">
+              Light purple navigation cards at the bottom of each case study page, linking to
+              related work.
+            </p>
+          </div>
+
+          <div className="comp-stage">
+            <div className="comp-frame" style={{ flex: 1 }}>
+              <div className="cs-next-card" style={{ width: '100%' }}>
+                <div className="cs-next-meta">
+                  <span className="case-study-tag">Account Management</span>
+                  <span className="case-study-year">2026</span>
+                </div>
+                <h4 className="cs-next-title">
+                  Replacing compliance-gated workarounds with self-serve account management
+                </h4>
+                <span className="cs-next-link">Read case study →</span>
+              </div>
+              <span className="comp-frame-label">.cs-next-card</span>
             </div>
           </div>
         </section>

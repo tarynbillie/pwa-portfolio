@@ -1,3 +1,10 @@
+const photos = [
+  { src: '/IMG_0357%202.JPG',                          alt: 'At the waterfront with my dog' },
+  { src: '/DSC_3756.JPG',                              alt: 'Working on a puzzle' },
+  { src: '/DSC_4581.JPG',                              alt: 'In the kitchen' },
+  { src: '/37472261-ED6E-4EBA-AC80-68D7EC0F4949.JPG', alt: 'At the dog park' },
+]
+
 const skillGroups = [
   {
     heading: 'Craft',
@@ -47,7 +54,7 @@ export default function About() {
           <h1>I build in the hard spaces.</h1>
           <p className="about-lead">
             Regulated fintech, compliance infrastructure, features where getting it wrong has real
-            consequences. With experience across B2B & B2C SaaS,
+            consequences. With experience across B2B &amp; B2C SaaS,
             fintech, and enterprise system rollouts, I specialize in making complexity manageable:
             clear processes, aligned stakeholders, and delivery you can trust. I own the full
             lifecycle — research, requirements, and delivery — working directly with engineering,
@@ -57,10 +64,6 @@ export default function About() {
             I bring a calm, systems-focused approach. The features and projects I'm most proud of are the ones
             that left teams and customers better than I found them — and because I prototype with
             AI, I'm never waiting on someone else to test what's possible.
-          </p>
-          <p className="about-sub">
-            Located in Hamilton, Ontario. Mom of two toddlers. Watercolour painter. Cyclist. In my spare time,
-            you can find me at the playground, splash pad, or community garden.
           </p>
           <a
             href="https://www.linkedin.com/messaging/compose/?recipient=tarynreithofer"
@@ -73,8 +76,24 @@ export default function About() {
         </div>
       </section>
 
+      {/* ── Photos + tagline ─────────────────────────────────────── */}
+      <section className="about-photos-section">
+        <div className="about-photos-inner">
+          <p className="about-photos-tagline">
+            Located in Hamilton, Ontario. Mom of two toddlers. Watercolour painter. Cyclist.
+            In my spare time, you can find me at the playground, splash pad, or community garden.
+          </p>
+          <div className="about-photos-wrap">
+            {photos.map(({ src, alt }, i) => (
+              <img key={src} src={src} alt={alt} className={`about-photo about-photo--${i + 1}`} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Skills ──────────────────────────────────────────────── */}
       <section className="about-body">
+        <span className="about-eyebrow">Core Skills</span>
         <div className="about-skills-grid">
           {skillGroups.map((group) => (
             <div key={group.heading} className="skill-group">

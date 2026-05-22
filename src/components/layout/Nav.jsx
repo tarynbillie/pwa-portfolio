@@ -1,15 +1,16 @@
-import { NavLink, Link } from 'react-router-dom'
-import { Briefcase, Layers, Zap, User, Home } from 'lucide-react'
+import { Link, NavLink, useMatch } from 'react-router-dom'
+import { Briefcase, Layers, User, Home, ChevronDown } from 'lucide-react'
 
-const links = [
-  { to: '/',           label: 'Home',       icon: Home },
-  { to: '/work',       label: 'Work',       icon: Briefcase },
-  { to: '/components', label: 'Components', icon: Layers },
-  { to: '/prototypes', label: 'Prototypes', icon: Zap },
-  { to: '/about',      label: 'About',      icon: User },
+const workItems = [
+  { to: '/work/portfolio-intelligence', label: 'Portfolio Intelligence' },
+  { to: '/work/account-management',     label: 'Account Management' },
+  { to: '/work/compliance-infrastructure', label: 'Compliance & Infrastructure' },
+  { to: '/work/prototypes',             label: 'Prototypes' },
 ]
 
 export default function Nav() {
+  const workMatch = useMatch('/work/*')
+
   return (
     <>
       {/* Desktop top nav */}
@@ -17,15 +18,37 @@ export default function Nav() {
         <Link to="/" className="nav-logo">Taryn Reithofer</Link>
         <div className="nav-right">
           <div className="nav-links">
-            {links.filter(l => l.to !== '/').map(({ to, label }) => (
-              <NavLink
-                key={to}
-                to={to}
-                className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-              >
-                {label}
-              </NavLink>
-            ))}
+
+            {/* Work — hover dropdown */}
+            <div className="nav-dropdown-wrap">
+              <span className={`nav-link nav-dropdown-trigger${workMatch ? ' active' : ''}`}>
+                Work <ChevronDown size={12} strokeWidth={2.5} />
+              </span>
+              <div className="nav-dropdown">
+                {workItems.map(({ to, label }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+
+            <NavLink
+              to="/components"
+              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+            >
+              Components
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+            >
+              About
+            </NavLink>
           </div>
           <a
             href="https://www.linkedin.com/messaging/compose/?recipient=tarynreithofer"
@@ -40,17 +63,35 @@ export default function Nav() {
 
       {/* Mobile bottom tab bar */}
       <nav className="nav nav-bottom">
-        {links.map(({ to, label, icon: Icon }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={to === '/'}
-            className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
-          >
-            <Icon size={20} strokeWidth={1.75} />
-            <span>{label}</span>
-          </NavLink>
-        ))}
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
+        >
+          <Home size={20} strokeWidth={1.75} />
+          <span>Home</span>
+        </NavLink>
+        <Link
+          to="/work/portfolio-intelligence"
+          className={`tab-link${workMatch ? ' active' : ''}`}
+        >
+          <Briefcase size={20} strokeWidth={1.75} />
+          <span>Work</span>
+        </Link>
+        <NavLink
+          to="/components"
+          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
+        >
+          <Layers size={20} strokeWidth={1.75} />
+          <span>Components</span>
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
+        >
+          <User size={20} strokeWidth={1.75} />
+          <span>About</span>
+        </NavLink>
       </nav>
     </>
   )

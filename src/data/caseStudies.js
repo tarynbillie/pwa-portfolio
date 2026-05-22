@@ -1,0 +1,94 @@
+export const caseStudies = [
+  {
+    id: 'portfolio-widget',
+    slug: 'portfolio-intelligence',
+    navLabel: 'Portfolio Intelligence',
+    tag: 'Discovery',
+    year: '2026',
+    title: "Defining a fintech platform's first portfolio intelligence features from scratch",
+    artifact: {
+      src: '/figjam-portfolio-widgets.png',
+      caption: 'FigJam board used to scope MVP criteria for Beat the Market, Trending Swaps, and Top Movers — presented to my director before going to the CEO.',
+    },
+    context: "A crypto wallet platform was introducing a biweekly feature launch cadence — shipping something small, intentional, and visible every two weeks. The portfolio widget initiative was the first major application of that cadence. No one had defined what portfolio intelligence should look like for crypto users, there was no existing benchmark, and there were no PRDs for multiple baseline features (unrealized gain/loss, cost basis, percentage allocation per asset) that every credible wallet was already shipping. The initiative was structured around three phases: closing table stakes gaps first, then parity-plus features that do what competitors do but better, then a sprint-by-sprint differentiation layer — features that give users a reason to open the app on days when nothing in their portfolio has changed.",
+    process: [
+      {
+        label: "Competitive benchmarking across 11 wallets",
+        detail: "Swept eleven wallets and fintech apps to identify table stakes gaps and above-parity opportunities. Confirmed that the platform was missing unrealized gain/loss per asset, total cost basis, and percentage allocation — baseline features with no PRDs found. That audit set the priority order before any feature debate started.",
+      },
+      {
+        label: "Social modelling across four personas",
+        detail: "Designed a repeatable prompt framework for each user archetype — each prompt seeded with the persona's risk tolerance, crypto experience level, and primary motivation — then ran it against every feature before a single screen was designed. The Crypto Curious user never sees Trending Swaps V1. Beat the Market ships descriptive-only first. Top Movers gets a friction tooltip on 'most sold' before launch. This approach compressed what would have been weeks of research sessions into rapid, structured iteration across all persona-feature combinations.",
+      },
+      {
+        label: "Adversarial debate framework for MVP criteria",
+        detail: "Engineered a multi-round adversarial prompt structure — a pro agent advocating for shipping and a locked against agent representing the most at-risk persona — iterated for at least 10 rounds per feature until no new objections surfaced. The output was 17 minimum viable requirements across the three features: persona gates, opt-in toggles, explicit 'trending' definitions, V2 commitments required before V1 ships. Each requirement was then T-shirt sized (XS–L) and classified as sand, pebble, or rock so engineering had a clear effort signal before design kicked off. Two features were explicitly upsized as a direct result — Top Movers from XS to S, Trending Swaps from S to S–M — because the debates surfaced scope that wasn't visible in the initial estimate.",
+      },
+    ],
+    outcomes: [
+      { num: '11',  label: 'wallets benchmarked' },
+      { num: '17',  label: 'minimum viable requirements defined across 3 features' },
+      { num: '3',   label: 'features placed on the roadmap' },
+      { num: '20+', label: 'features backlogged, sized, and sequenced' },
+    ],
+    reflectionHeading: "What followed",
+    reflection: "After completing this discovery work, I identified portfolio intelligence as an unowned product surface — a Confluence ownership gap analysis confirmed every other major product area had an assigned PM except this one. Pitched it to my manager as a specialization area, backed by the benchmarking evidence. It became a formal part of my roadmap.",
+  },
+  {
+    id: 'settings-self-serve',
+    slug: 'account-management',
+    navLabel: 'Account Management',
+    tag: 'Settings',
+    year: '2026',
+    title: 'Replacing compliance-gated workarounds with self-serve account management for email and phone updates',
+    context: "The same SOP governed both email and phone number updates — users had to create a secondary account, deliberately fail email verification, and wait up to 24 hours for Compliance to complete a manual update. Email-related tickets represented 4–10% of total support volume; phone accounted for another 5% through the same process. Neither flow existed as a designed product experience. For a returning user blocked before a transaction, the wait wasn't friction — it was a reason to leave.",
+    process: [
+      {
+        label: "Paired discovery briefs, two approved PRDs",
+        detail: "Ran the full lifecycle from discovery brief through PRD for both email and phone number. Presented both features together — same philosophy, same trust moment, same root cause. Managed parallel scopes so engineering could plan each independently without blocking each other. Both PRDs approved and ready for grooming.",
+      },
+      {
+        label: "Engineering efficiency decisions built into scope",
+        detail: "Three deliberate decisions reduced build effort: email verification screens and OTP logic from onboarding were repurposed without modification — no net-new screens required. Phone number verification delegated entirely to the Sumsub SDK, which owns country code selection, format validation, auto-populate, and OTP — minimal custom build. A 24-hour cooldown mechanic was designed as a generic, reusable flag applicable to any future security-sensitive action.",
+      },
+      {
+        label: "Stakeholder alignment across both features",
+        detail: "Managed design review feedback from two designers, customer success resurface of descoped items, and compliance routing requirements for both flows in parallel. Every open question resolved at the PRD stage before engineering began. No compliance blockers carried into development on either feature.",
+      },
+    ],
+    outcomes: [
+      { num: '~15%', label: 'of total support volume targeted for elimination' },
+      { num: '≥95%', label: 'target self-serve verification rate' },
+      { num: '0',    label: 'net-new verification screens required' },
+    ],
+  },
+  {
+    id: 'compliance-infra',
+    slug: 'compliance-infrastructure',
+    navLabel: 'Compliance & Infrastructure',
+    tag: 'Compliance',
+    year: '2026',
+    title: 'Three compliance and infrastructure initiatives — from misaligned framing to approval-ready PRDs',
+    context: "These three initiatives share a pattern: the real work happens before a single screen is designed. Address update was blocked because stakeholders were debating the wrong problem. Sumsub transaction monitoring closed an AML compliance gap that had no user-facing surface. Transaction email templates exposed an infrastructure scope risk before it became a delivery problem. In each case, the contribution was defining what the problem actually was.",
+    process: [
+      {
+        label: "Address update: reframing the problem unlocked alignment",
+        detail: "The brief came in as a routine address change feature. Three stakeholder conversations in, no one agreed on what 'address update' meant from a compliance standpoint — the team was debating KYC verification requirements, proof-of-address documentation, and pending states that shouldn't exist. Traced the misalignment to a fundamental framing problem: the platform doesn't verify address authenticity, it re-evaluates user jurisdiction category on address change. Retired 'verification' and 'validation' language across all documentation. That reframe resolved six of eight open compliance questions before development began. Before handing off, ran a cross-document alignment audit across the PRD and all four user stories — catching and resolving 17 inconsistencies before engineering ever saw the document.",
+        reflection: "The requirement arrived as an ambiguous roadmap item with almost no context, and I wrote the brief before fully understanding the product's compliance model. The real learning: when a roadmap item arrives without a problem statement, interrogate the frame before writing a word — not after the discovery brief alignment call.",
+      },
+      {
+        label: "Sumsub transaction monitoring: closing a material AML gap",
+        detail: "RockWallet had fraud-focused monitoring via Sardine and identity verification at onboarding via Sumsub KYC — but no continuous AML transaction monitoring. A user who onboards as a school teacher and begins executing million-dollar trades wasn't flagged, because no system was watching for that pattern. Ran a coverage analysis confirming Sardine and Sumsub are complementary, not interchangeable — dual integration, not a migration. Defined the data pipeline requirements to connect RockWallet's transaction data warehouse to Sumsub's risk scoring engine. PRD drafted and presented to leadership at the March 18 Discovery Review.",
+      },
+      {
+        label: "Transaction email templates: scope protection and infrastructure clarity",
+        detail: "Leadership flagged an opportunity to upgrade the visual quality of transactional emails on AWS SES — a template and design initiative, not a copy rewrite. Confirmed the platform's email infrastructure stack and identified the Sumsub vs. AWS SES email scope split before it became a delivery risk. When a full copy rewrite was proposed in stakeholder review, escalated it to the room rather than resolving it unilaterally — a scope call with compliance implications isn't a PM decision to make alone. Surfaced a viable path for non-technical template editing post-launch. Brief presented at the March 25 Discovery Review. Low dev effort target maintained throughout.",
+      },
+    ],
+    outcomes: [
+      { num: '1',  label: 'active AML compliance gap remediated — high-value trades were going unflagged' },
+      { num: '17', label: 'cross-document inconsistencies resolved before engineering handoff' },
+      { num: '6',  label: 'of 8 compliance blockers resolved before development began' },
+    ],
+  },
+]

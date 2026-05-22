@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const featured = {
+  slug: 'portfolio-intelligence',
   tag: 'Discovery',
   year: '2026',
   title: "Defining a fintech platform's first portfolio intelligence features from scratch",
@@ -13,14 +14,14 @@ const featured = {
 
 const caseStudies = [
   {
-    slug: 'settings-self-serve',
+    slug: 'account-management',
     tag: 'Settings',
     year: '2026',
     title: 'Replacing compliance-gated workarounds with self-serve account management',
     body: 'Two account management features with no self-serve path and significant compliance surface. I ran the full PM lifecycle for both in parallel, with engineering efficiency decisions built into scope from day one.',
   },
   {
-    slug: 'compliance-infra',
+    slug: 'compliance-infrastructure',
     tag: 'Compliance',
     year: '2026',
     title: 'Three compliance and infrastructure initiatives — from misaligned framing to approval-ready PRDs',
@@ -44,12 +45,8 @@ export default function Home() {
                 projects — built to explore ideas, sharpen craft, and document the work.
                 I'm so happy you're here!
               </p>
-              <p className="hero-pwa-note">
-                This portfolio is a PWA — install it on your phone like a native app.
-                <span className="hero-pwa-steps">iOS: Share → Add to Home Screen · Android: ⋮ → Add to Home Screen</span>
-              </p>
               <div className="hero-actions">
-                <Link to="/work" className="btn btn-primary">View work</Link>
+                <a href="#case-studies" className="btn btn-primary">View work</a>
                 <Link to="/about" className="btn btn-secondary">About me</Link>
               </div>
             </div>
@@ -61,7 +58,7 @@ export default function Home() {
       </div>
 
       {/* ── Featured Work ────────────────────────────────────────── */}
-      <section className="home-work">
+      <section id="case-studies" className="home-work">
         <div className="home-work-inner">
           <span className="home-eyebrow">Selected Work</span>
           <h2 className="home-work-heading">Case Studies</h2>
@@ -84,7 +81,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Link to="/work#portfolio-widget" className="work-card-link work-card-link--light">
+              <Link to={`/work/${featured.slug}`} className="work-card-link work-card-link--light">
                 Read case study →
               </Link>
             </article>
@@ -98,7 +95,7 @@ export default function Home() {
                 </div>
                 <h3 className="work-card-title">{cs.title}</h3>
                 <p className="work-card-body">{cs.body}</p>
-                <Link to={`/work#${cs.slug}`} className="work-card-link">
+                <Link to={`/work/${cs.slug}`} className="work-card-link">
                   Read case study →
                 </Link>
               </article>

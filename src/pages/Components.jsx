@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Eye, EyeOff, ExternalLink } from 'lucide-react'
+import { Eye, EyeOff, ExternalLink, ArrowUp } from 'lucide-react'
 
 const NAV_GROUPS = [
   {
@@ -81,6 +81,15 @@ const TYPE_SCALE = [
 export default function Components() {
   const [activeId, setActiveId] = useState('colors')
   const [pwVisible, setPwVisible] = useState(false)
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
+  useEffect(() => {
+    function onScroll() {
+      setShowScrollTop(window.scrollY > 400)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -540,6 +549,15 @@ export default function Components() {
         </section>
 
       </div>
+
+      <button
+        className={`scroll-top-btn${showScrollTop ? ' scroll-top-btn--visible' : ''}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={18} strokeWidth={2} />
+      </button>
+
     </div>
   )
 }

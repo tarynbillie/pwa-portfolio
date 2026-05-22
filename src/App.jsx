@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Nav from './components/layout/Nav'
 import Home from './pages/Home'
 import Components from './pages/Components'
-import Prototypes from './pages/Prototypes'
-import Work from './pages/Work'
+import CaseStudy from './pages/CaseStudy'
+import WorkPrototypes from './pages/WorkPrototypes'
 import About from './pages/About'
 import './App.css'
 
@@ -15,9 +15,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/components" element={<Components />} />
-          <Route path="/prototypes" element={<Prototypes />} />
-          <Route path="/work" element={<Work />} />
           <Route path="/about" element={<About />} />
+          <Route path="/work" element={<Navigate to="/work/portfolio-intelligence" replace />} />
+          <Route path="/work/prototypes" element={<WorkPrototypes />} />
+          <Route path="/work/:slug" element={<CaseStudy />} />
+          <Route path="/prototypes" element={<Navigate to="/work/prototypes" replace />} />
         </Routes>
       </main>
     </BrowserRouter>

@@ -98,6 +98,7 @@ const caseStudies = [
       { num: '20%',    label: 'faster average onboarding ramp for new agents' },
       { num: '100%',   label: 'satisfaction score on training feedback surveys' },
       { num: '1,500+', label: 'knowledge assets migrated to a unified source of truth' },
+      { num: '5',      label: 'lifelong friendships, give or take' },
     ],
   },
   {

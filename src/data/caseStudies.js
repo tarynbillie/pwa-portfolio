@@ -117,6 +117,7 @@ export const caseStudies = [
       { num: '20%',    label: 'faster average onboarding ramp for new agents' },
       { num: '100%',   label: 'satisfaction score on training feedback surveys' },
       { num: '1,500+', label: 'knowledge assets migrated to a unified source of truth' },
+      { num: '5',      label: 'lifelong friendships, give or take' },
     ],
     personalTakeaway: "The through-line across five years at Q4 is that I was doing PM work before I had the title. I owned a problem space, drove tooling decisions, measured outcomes, and advocated for product changes that addressed root causes — not just symptoms. The Forethought deployment, the workflow redesign, the self-serve advocacy, the Spekit implementation — those are connected. Each one addressed a different layer of the same underlying failure.\n\nWhat I carry forward: support operations is a product signal. The tickets your team handles, the escalations that keep repeating, the knowledge gaps agents fill with guesswork — those are all telling you something about where the product is failing users. I spent five years on the inside of that, which means I recognize those signals before they show up in a dashboard. That's not context you get from a briefing — it's what you earn from living inside the operation.",
   },

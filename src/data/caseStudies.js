@@ -104,7 +104,7 @@ export const caseStudies = [
       },
       {
         label: "Led end-to-end implementation of Spekit, an AI-powered knowledge platform",
-        detail: "After moving into the Revenue and Enablement Specialist role, designed and executed the full implementation: content architecture, taxonomy, and migration of 1,500+ assets to a unified source of truth across internal systems. The Spekit work was the completion of a thread that started on the Team Lead side — AI triage fixed the routing problem, but agents still needed better information to resolve cases without escalating. 30% increase in self-serve knowledge access, measurable reduction in support escalations, 20% faster average onboarding ramp, and 100% satisfaction on training feedback surveys.",
+        detail: "Designed and executed the full Spekit implementation — an AI-powered knowledge management platform embedded directly into Salesforce and other internal tools, so support and CX could surface SOPs, client documentation, and process guidance without leaving their workflow. Extended the integration into Slack, where the team was already asking questions and escalating to CSMs and Eng. The goal was to intercept those escalations at the source: if an agent could find the answer in the channel they were already in, the noise went down and CSMs and Eng stayed focused on higher-value work. This completed a thread that started on the Team Lead side — AI triage fixed the routing problem, but agents still needed better information to resolve cases without asking someone else. 30% increase in self-serve knowledge access, measurable reduction in support escalations, 20% faster onboarding ramp, and 100% satisfaction on training feedback surveys.",
       },
     ],
     outcomes: [

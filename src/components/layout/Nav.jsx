@@ -1,15 +1,20 @@
 import { Link, NavLink, useMatch } from 'react-router-dom'
-import { Briefcase, Layers, User, Home, ChevronDown } from 'lucide-react'
+import { Briefcase, Layers, User, Home, ChevronDown, FlaskConical } from 'lucide-react'
 
 const workItems = [
-  { to: '/work/portfolio-intelligence', label: 'Portfolio Intelligence' },
-  { to: '/work/account-management',     label: 'Account Management' },
+  { to: '/work/portfolio-intelligence',    label: 'Portfolio Intelligence' },
+  { to: '/work/account-management',        label: 'Account Management' },
   { to: '/work/compliance-infrastructure', label: 'Compliance & Infrastructure' },
-  { to: '/work/prototypes',             label: 'Prototypes' },
+  { to: '/work/prototypes',               label: 'Prototypes' },
+]
+
+const playgroundItems = [
+  { to: '/breathing-room', label: 'Breathing Room' },
 ]
 
 export default function Nav() {
-  const workMatch = useMatch('/work/*')
+  const workMatch       = useMatch('/work/*')
+  const playgroundMatch = useMatch('/calendar-clarity') || useMatch('/playground')
 
   return (
     <>
@@ -26,6 +31,24 @@ export default function Nav() {
               </span>
               <div className="nav-dropdown">
                 {workItems.map(({ to, label }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+
+            {/* Playground — hover dropdown */}
+            <div className="nav-dropdown-wrap">
+              <span className={`nav-link nav-dropdown-trigger${playgroundMatch ? ' active' : ''}`}>
+                Playground <ChevronDown size={12} strokeWidth={2.5} />
+              </span>
+              <div className="nav-dropdown">
+                {playgroundItems.map(({ to, label }) => (
                   <NavLink
                     key={to}
                     to={to}
@@ -78,6 +101,13 @@ export default function Nav() {
           <Briefcase size={20} strokeWidth={1.75} />
           <span>Work</span>
         </Link>
+        <NavLink
+          to="/playground"
+          className={({ isActive }) => `tab-link${isActive || playgroundMatch ? ' active' : ''}`}
+        >
+          <FlaskConical size={20} strokeWidth={1.75} />
+          <span>Playground</span>
+        </NavLink>
         <NavLink
           to="/components"
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}

@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Calendar exports — never commit personal data
+*.ics
+calendars/

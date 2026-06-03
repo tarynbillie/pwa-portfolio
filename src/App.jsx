@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import Components from './pages/Components'
 import CaseStudy from './pages/CaseStudy'
 import WorkPrototypes from './pages/WorkPrototypes'
+import BreathingRoom from './pages/BreathingRoom'
+import Playground from './pages/Playground'
 import About from './pages/About'
 import './App.css'
 
@@ -19,6 +21,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/work" element={<Navigate to="/work/portfolio-intelligence" replace />} />
           <Route path="/work/prototypes" element={<WorkPrototypes />} />
+          <Route path="/playground" element={<Playground />} />
+          <Route path="/breathing-room" element={<BreathingRoom />} />
           <Route path="/work/:slug" element={<CaseStudy />} />
           <Route path="/prototypes" element={<Navigate to="/work/prototypes" replace />} />
         </Routes>

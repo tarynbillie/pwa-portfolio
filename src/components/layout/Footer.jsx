@@ -23,7 +23,7 @@ export default function Footer() {
           <span aria-hidden="true">·</span>
           <a href="https://github.com/tarynbillie" target="_blank" rel="noreferrer">GitHub</a>
           <span aria-hidden="true">·</span>
-          <a href="/taryn-reithofer-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          <a href="/Taryn%20Reithofer%20-%20Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
         </div>
       </div>
     </footer>

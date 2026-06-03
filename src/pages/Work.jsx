@@ -66,7 +66,7 @@ const caseStudies = [
   },
   {
     id: 'q4-support-ops',
-    tag: 'CX & Ops',
+    tag: 'Support & Enablement Ops',
     year: '2020–2025',
     title: "Rebuilding Q4's support operation from the inside: AI triage, workflow redesign, and the product advocacy that reduced volume",
     context: "Q4 Inc. built investor relations websites for public companies — high-stakes, time-sensitive support with SLA windows measured in minutes. The operation was reactive: manual triage, inconsistent routing, Time to First Pending at 4.4 hours. The team was scaling headcount to absorb load rather than addressing structural causes. A parallel failure lived in the knowledge layer — documentation was fragmented, agents had no reliable source of truth, and escalations were high because the people handling tickets didn't have what they needed to resolve cases without asking someone else.",

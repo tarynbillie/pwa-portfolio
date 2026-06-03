@@ -77,10 +77,10 @@ export const caseStudies = [
   {
     id: 'q4-support-ops',
     slug: 'support-operations',
-    navLabel: 'CX & Support Ops',
+    navLabel: 'Support & Enablement Ops',
     company: 'Q4 Inc.',
     gated: false,
-    tag: 'CX & Ops',
+    tag: 'Support & Enablement Ops',
     year: '2020–2025',
     title: "Rebuilding Q4's support operation from the inside: AI triage, workflow redesign, and the product advocacy that reduced volume",
     contextLabel: 'The Problem',

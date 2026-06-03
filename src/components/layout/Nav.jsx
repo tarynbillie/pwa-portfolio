@@ -14,7 +14,7 @@ const workGroups = [
   {
     company: 'Q4 Inc.',
     items: [
-      { to: '/work/support-operations', label: 'CX & Support Ops' },
+      { to: '/work/support-operations', label: 'Support & Enablement Ops' },
     ],
   },
 ]

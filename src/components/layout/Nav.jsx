@@ -1,11 +1,22 @@
 import { Link, NavLink, useMatch } from 'react-router-dom'
 import { Briefcase, Layers, User, Home, ChevronDown, FlaskConical } from 'lucide-react'
 
-const workItems = [
-  { to: '/work/portfolio-intelligence',    label: 'Portfolio Intelligence' },
-  { to: '/work/account-management',        label: 'Account Management' },
-  { to: '/work/compliance-infrastructure', label: 'Compliance & Infrastructure' },
-  { to: '/work/prototypes',               label: 'Prototypes' },
+const workGroups = [
+  {
+    company: 'RockWallet',
+    items: [
+      { to: '/work/portfolio-intelligence',    label: 'Portfolio Intelligence' },
+      { to: '/work/account-management',        label: 'Account Management' },
+      { to: '/work/compliance-infrastructure', label: 'Compliance & Infrastructure' },
+      { to: '/work/prototypes',                label: 'Prototypes' },
+    ],
+  },
+  {
+    company: 'Q4 Inc.',
+    items: [
+      { to: '/work/support-operations', label: 'CX & Support Ops' },
+    ],
+  },
 ]
 
 const playgroundItems = [
@@ -30,14 +41,19 @@ export default function Nav() {
                 Work <ChevronDown size={12} strokeWidth={2.5} />
               </span>
               <div className="nav-dropdown">
-                {workItems.map(({ to, label }) => (
-                  <NavLink
-                    key={to}
-                    to={to}
-                    className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}
-                  >
-                    {label}
-                  </NavLink>
+                {workGroups.map(({ company, items }, gi) => (
+                  <div key={company} className={`nav-dropdown-group${gi > 0 ? ' nav-dropdown-group--bordered' : ''}`}>
+                    <span className="nav-dropdown-group-label">{company}</span>
+                    {items.map(({ to, label }) => (
+                      <NavLink
+                        key={to}
+                        to={to}
+                        className={({ isActive }) => `nav-dropdown-item${isActive ? ' active' : ''}`}
+                      >
+                        {label}
+                      </NavLink>
+                    ))}
+                  </div>
                 ))}
               </div>
             </div>

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp, ChevronLeft, ChevronRight } from 'lucide-react'
 import WorkGate from '../components/ui/WorkGate'
 import { caseStudies } from '../data/caseStudies'
 
@@ -33,16 +33,23 @@ export default function CaseStudy() {
   if (!cs) return <Navigate to="/work/portfolio-intelligence" replace />
 
   const others = caseStudies.filter(c => c.slug !== slug)
+  const scrollRef = useRef(null)
 
-  return (
-    <WorkGate>
+  function scroll(dir) {
+    if (!scrollRef.current) return
+    const amount = scrollRef.current.clientWidth * 0.8
+    scrollRef.current.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' })
+  }
+
+  const body = (
+    <>
       <div className="work-page">
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <div className="work-page-header">
           <div className="work-page-header-inner">
             <div className="cs-hero-meta">
-              <span className="work-page-eyebrow">RockWallet</span>
+              <span className="work-page-eyebrow">{cs.company ?? 'RockWallet'}</span>
               <span className="case-study-year">{cs.year}</span>
             </div>
             <h1 className="cs-hero-title">{cs.title}</h1>
@@ -138,17 +145,25 @@ export default function CaseStudy() {
         {/* ── Next case studies ─────────────────────────────────── */}
         <div className="cs-next">
           <span className="cs-next-heading">More case studies</span>
-          <div className="cs-next-grid">
-            {others.map(other => (
-              <Link key={other.slug} to={`/work/${other.slug}`} className="cs-next-card">
-                <div className="cs-next-meta">
-                  <span className="case-study-tag">{other.navLabel}</span>
-                  <span className="case-study-year">{other.year}</span>
-                </div>
-                <h4 className="cs-next-title">{other.title}</h4>
-                <span className="cs-next-link">Read case study →</span>
-              </Link>
-            ))}
+          <div className="cs-next-wrap">
+            <button className="cs-next-arrow cs-next-arrow--left" onClick={() => scroll('left')} aria-label="Previous">
+              <ChevronLeft size={20} strokeWidth={2} />
+            </button>
+            <div className="cs-next-track" ref={scrollRef}>
+              {others.map(other => (
+                <Link key={other.slug} to={`/work/${other.slug}`} className="cs-next-card">
+                  <div className="cs-next-meta">
+                    <span className="case-study-tag">{other.navLabel}</span>
+                    <span className="case-study-year">{other.year}</span>
+                  </div>
+                  <h4 className="cs-next-title">{other.title}</h4>
+                  <span className="cs-next-link">Read case study →</span>
+                </Link>
+              ))}
+            </div>
+            <button className="cs-next-arrow cs-next-arrow--right" onClick={() => scroll('right')} aria-label="Next">
+              <ChevronRight size={20} strokeWidth={2} />
+            </button>
           </div>
         </div>
 
@@ -161,7 +176,8 @@ export default function CaseStudy() {
       >
         <ArrowUp size={18} strokeWidth={2} />
       </button>
-
-    </WorkGate>
+    </>
   )
+
+  return cs.gated === false ? body : <WorkGate>{body}</WorkGate>
 }

@@ -75,6 +75,52 @@ export const caseStudies = [
     personalTakeaway: "Running two parallel feature lifecycles simultaneously sharpened how I think about scope boundaries. The instinct to merge them into one project was real — same trust moment, same root cause — but keeping them separate gave engineering clean, independently plannable work. I left this one with a stronger lens on efficiency as a PM responsibility, not just an engineering concern.\n\nWhat I carry forward: sloppy scope boundaries are expensive, and that cost usually lands on engineering. I now think about how a feature is structured as part of the PM job, not something to sort out later. And before I write a single requirement, I'm asking what already exists in the product that solves part of this — because the 0 net-new screens result didn't come from good design, it came from asking that question early enough. That kind of thinking compounds. Every unnecessary build you avoid is time and budget that goes toward something that actually moves the needle.",
   },
   {
+    id: 'q4-support-ops',
+    slug: 'support-operations',
+    navLabel: 'CX & Support Ops',
+    company: 'Q4 Inc.',
+    gated: false,
+    tag: 'CX & Ops',
+    year: '2020–2025',
+    title: "Rebuilding Q4's support operation from the inside: AI triage, workflow redesign, and the product advocacy that reduced volume",
+    contextLabel: 'The Problem',
+    contextParagraphs: [
+      "Q4 Inc. built investor relations websites for public companies — a time-sensitive, high-stakes environment where earnings events go live on a fixed schedule and SLA failures are visible to the market. The support team handled CMS updates, front-end fixes, and live event support under windows measured in minutes.",
+      "The operation was reactive. Case volume was growing, triage was manual, routing was inconsistent, and Time to First Pending sat at 4.4 hours — long enough that client trust eroded before the problem was even touched. The team was scaling headcount to absorb load rather than addressing the structural causes.",
+      "A parallel failure lived in the knowledge layer. Internal documentation was fragmented across multiple systems, new agents had no reliable source of truth, and support escalations were high partly because the people handling tickets didn't have what they needed to resolve cases without asking someone else.",
+    ],
+    process: [
+      {
+        label: "Deployed Forethought AI triage in Salesforce Service Console",
+        detail: "Partnered with Business Operations and the internal Salesforce team to evaluate, configure, and deploy Forethought — an AI-powered triage tool — designing queue logic, escalation rules, and routing criteria from scratch. The value wasn't the tool; it was how the system was configured: which signals triggered which routes, what escalation conditions looked like, and how to prevent false-positive routing that would erode analyst trust before the system had a chance to prove itself. Cut Time to First Pending from 4.4 to 1.4 hours — a 70% reduction. Reduced case backlog by 30% during peak quarters.",
+      },
+      {
+        label: "Redesigned workflows using CRM data and process automation",
+        detail: "Applied Salesforce and Tableau data to surface volume trends, uncover prioritization failures, and build the analytical case for where manual routing was breaking down. Built process automation and redesigned escalation workflows around what the data showed — not what the team assumed. Sustained 90%+ SLA attainment across a team of 13 analysts through two high-growth quarters, including the S&P Global Market Intelligence migration that onboarded approximately 500 new IR sites onto Q4's platform. The SLA result wasn't from headcount. It was from understanding where time was being lost and designing structure around the gaps.",
+      },
+      {
+        label: "Advocated for self-serve features that reduced inbound support volume",
+        detail: "Identified a category of support tickets that were a product gap, not a people gap — clients creating cases for routine CMS tasks the product should have let them do themselves. Brought quantified volume data into the conversation with Customer Experience and Product, framing the support load as a signal about where the product was failing users. Self-serve features shipped, freeing the team to focus on higher-complexity work. This was the most consequential move of that period — it required treating my team's ticket queue as a product signal and taking that argument to the people who could actually change the product.",
+      },
+      {
+        label: "Led end-to-end implementation of Spekit, an AI-powered knowledge platform",
+        detail: "After moving into the Revenue and Enablement Specialist role, designed and executed the full implementation: content architecture, taxonomy, and migration of 1,500+ assets to a unified source of truth across internal systems. The Spekit work was the completion of a thread that started on the Team Lead side — AI triage fixed the routing problem, but agents still needed better information to resolve cases without escalating. 30% increase in self-serve knowledge access, measurable reduction in support escalations, 20% faster average onboarding ramp, and 100% satisfaction on training feedback surveys.",
+      },
+    ],
+    outcomes: [
+      { num: '13',     label: 'analysts led through two consecutive high-growth quarters' },
+      { num: '70%',    label: 'reduction in Time to First Pending — 4.4 hours to 1.4' },
+      { num: '30%',    label: 'reduction in case backlog during peak quarters' },
+      { num: '90%+',   label: 'SLA attainment sustained across the team' },
+      { num: '~500',   label: 'IR sites onboarded during the S&P Global migration' },
+      { num: '30%',    label: 'increase in self-serve knowledge access post-Spekit' },
+      { num: '20%',    label: 'faster average onboarding ramp for new agents' },
+      { num: '100%',   label: 'satisfaction score on training feedback surveys' },
+      { num: '1,500+', label: 'knowledge assets migrated to a unified source of truth' },
+    ],
+    personalTakeaway: "The through-line across five years at Q4 is that I was doing PM work before I had the title. I owned a problem space, drove tooling decisions, measured outcomes, and advocated for product changes that addressed root causes — not just symptoms. The Forethought deployment, the workflow redesign, the self-serve advocacy, the Spekit implementation — those are connected. Each one addressed a different layer of the same underlying failure.\n\nWhat I carry forward: support operations is a product signal. The tickets your team handles, the escalations that keep repeating, the knowledge gaps agents fill with guesswork — those are all telling you something about where the product is failing users. I spent five years on the inside of that, which means I recognize those signals before they show up in a dashboard. That's not context you get from a briefing — it's what you earn from living inside the operation.",
+  },
+  {
     id: 'compliance-infra',
     slug: 'compliance-infrastructure',
     navLabel: 'Compliance & Infrastructure',

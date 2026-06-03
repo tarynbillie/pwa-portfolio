@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import WorkGate from '../components/ui/WorkGate'
 
-const caseStudyIds = ['portfolio-widget', 'settings-self-serve', 'compliance-infra']
+const caseStudyIds = ['portfolio-widget', 'settings-self-serve', 'q4-support-ops', 'compliance-infra']
 
 const caseStudies = [
   {
@@ -62,6 +62,42 @@ const caseStudies = [
       { num: '~15%', label: 'of total support volume targeted for elimination' },
       { num: '≥95%', label: 'target self-serve verification rate' },
       { num: '0',    label: 'net-new verification screens required' },
+    ],
+  },
+  {
+    id: 'q4-support-ops',
+    tag: 'CX & Ops',
+    year: '2020–2025',
+    title: "Rebuilding Q4's support operation from the inside: AI triage, workflow redesign, and the product advocacy that reduced volume",
+    context: "Q4 Inc. built investor relations websites for public companies — high-stakes, time-sensitive support with SLA windows measured in minutes. The operation was reactive: manual triage, inconsistent routing, Time to First Pending at 4.4 hours. The team was scaling headcount to absorb load rather than addressing structural causes. A parallel failure lived in the knowledge layer — documentation was fragmented, agents had no reliable source of truth, and escalations were high because the people handling tickets didn't have what they needed to resolve cases without asking someone else.",
+    process: [
+      {
+        label: "Deployed Forethought AI triage in Salesforce Service Console",
+        detail: "Partnered with Business Operations and the internal Salesforce team to evaluate, configure, and deploy Forethought — an AI-powered triage tool — designing queue logic, escalation rules, and routing criteria from scratch. The value wasn't the tool; it was how the system was configured: which signals triggered which routes, what escalation conditions looked like, and how to prevent false-positive routing that would erode analyst trust before the system had a chance to prove itself. Cut Time to First Pending from 4.4 to 1.4 hours — a 70% reduction. Reduced case backlog by 30% during peak quarters.",
+      },
+      {
+        label: "Redesigned workflows using CRM data and process automation",
+        detail: "Applied Salesforce and Tableau data to surface volume trends, uncover prioritization failures, and build the analytical case for where manual routing was breaking down. Sustained 90%+ SLA attainment across a team of 13 analysts through two high-growth quarters, including the S&P Global Market Intelligence migration that onboarded approximately 500 new IR sites onto Q4's platform.",
+      },
+      {
+        label: "Advocated for self-serve features that reduced inbound support volume",
+        detail: "Identified a category of support tickets that were a product gap, not a people gap — clients creating cases for routine CMS tasks the product should have let them do themselves. Brought quantified volume data into the conversation with Customer Experience and Product, framing the support load as a signal about where the product was failing users. Self-serve features shipped, freeing the team to focus on higher-complexity work.",
+      },
+      {
+        label: "Led end-to-end implementation of Spekit, an AI-powered knowledge platform",
+        detail: "Designed and executed the full implementation: content architecture, taxonomy, and migration of 1,500+ assets to a unified source of truth. The Spekit work completed a thread that started on the Team Lead side — AI triage fixed the routing problem, but agents still needed better information to resolve cases without escalating. 30% increase in self-serve knowledge access, 20% faster onboarding ramp, 100% satisfaction on training feedback surveys.",
+      },
+    ],
+    outcomes: [
+      { num: '13',     label: 'analysts led through two consecutive high-growth quarters' },
+      { num: '70%',    label: 'reduction in Time to First Pending — 4.4 hours to 1.4' },
+      { num: '30%',    label: 'reduction in case backlog during peak quarters' },
+      { num: '90%+',   label: 'SLA attainment sustained across the team' },
+      { num: '~500',   label: 'IR sites onboarded during the S&P Global migration' },
+      { num: '30%',    label: 'increase in self-serve knowledge access post-Spekit' },
+      { num: '20%',    label: 'faster average onboarding ramp for new agents' },
+      { num: '100%',   label: 'satisfaction score on training feedback surveys' },
+      { num: '1,500+', label: 'knowledge assets migrated to a unified source of truth' },
     ],
   },
   {

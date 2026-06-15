@@ -27,8 +27,9 @@ const NAV_GROUPS = [
       { id: 'outcome-stat', label: 'Outcome Stat' },
       { id: 'process-step', label: 'Process Step' },
       { id: 'takeaway',     label: 'Personal Takeaway' },
-      { id: 'case-nav-card', label: 'Case Study Nav Card' },
-      { id: 'work-gate',    label: 'Work Gate' },
+      { id: 'case-nav-card',  label: 'Case Study Nav Card' },
+      { id: 'writing-feed',  label: 'Writing Feed Item' },
+      { id: 'work-gate',     label: 'Work Gate' },
     ],
   },
 ]
@@ -59,6 +60,19 @@ const BRAND = [
   { step: '700', hex: '#6941c6' },
   { step: '800', hex: '#53389e' },
   { step: '900', hex: '#42307d' },
+]
+
+const MAUVE = [
+  { step: '50',  hex: '#f5f0f7' },
+  { step: '100', hex: '#f0e8f5' },
+  { step: '200', hex: '#ddd0e8' },
+  { step: '300', hex: '#c4a8d2' },
+  { step: '400', hex: '#a880ba' },
+  { step: '500', hex: '#8e5ea0' },
+  { step: '600', hex: '#7b4f8e' },
+  { step: '700', hex: '#63397a' },
+  { step: '800', hex: '#4e2960' },
+  { step: '900', hex: '#3a1d47' },
 ]
 
 const SEMANTIC = [
@@ -219,6 +233,19 @@ export default function Components() {
             </div>
 
             <div className="comp-palette">
+              <p className="comp-palette-title">Secondary — Dusty Mauve</p>
+              <div className="comp-swatches">
+                {MAUVE.map(({ step, hex }) => (
+                  <div key={step} className="comp-swatch">
+                    <div className="comp-swatch-color" style={{ background: hex }} />
+                    <span className="comp-swatch-label">{step}</span>
+                    <span className="comp-swatch-label">{hex}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="comp-palette">
               <p className="comp-palette-title">Semantic Aliases</p>
               <div className="comp-swatches">
                 {SEMANTIC.map(({ name, hex, label }) => (
@@ -368,6 +395,14 @@ export default function Components() {
               <span className="case-study-year">2026</span>
               <span className="comp-frame-label">.case-study-year</span>
             </div>
+            <div className="comp-frame">
+              <span className="writing-card-tag">Leadership</span>
+              <span className="comp-frame-label">.writing-card-tag</span>
+            </div>
+            <div className="comp-frame">
+              <span className="writing-eyebrow">Writing</span>
+              <span className="comp-frame-label">.writing-eyebrow</span>
+            </div>
           </div>
         </section>
 
@@ -400,8 +435,8 @@ export default function Components() {
             <p className="comp-section-eyebrow">Elements</p>
             <h2 className="comp-section-title">Scroll to Top</h2>
             <p className="comp-section-desc">
-              Fixed button that fades in after 400px of scroll. Present on the Components and Case
-              Study pages.
+              Fixed button that fades in after 400px of scroll. Present on the Components, Case
+              Study, and Writing pages.
             </p>
           </div>
 
@@ -659,6 +694,43 @@ export default function Components() {
               </div>
               <span className="comp-frame-label">.cs-next-card</span>
             </div>
+          </div>
+        </section>
+
+        {/* ── Writing Feed Item ───────────────────────────────── */}
+        <section id="writing-feed" className="comp-section">
+          <div className="comp-section-header">
+            <p className="comp-section-eyebrow">Patterns</p>
+            <h2 className="comp-section-title">Writing Feed Item</h2>
+            <p className="comp-section-desc">
+              Used on the Writing index page. Typography-forward list layout — no card box,
+              just dividers and hierarchy. Internal essays link to <code>/writing/:slug</code>;
+              Medium pieces link externally.
+            </p>
+          </div>
+
+          <div className="comp-stage comp-stage--col" style={{ padding: 0, background: 'none', border: 'none' }}>
+            <div style={{ width: '100%', maxWidth: 680 }}>
+              <div className="feed-item" style={{ pointerEvents: 'none' }}>
+                <div className="feed-item-top">
+                  <span className="writing-card-tag">Leadership</span>
+                  <span className="feed-item-meta">2025 · 3 min read</span>
+                </div>
+                <h2 className="feed-item-title">Hard Skills Don't Make You Great</h2>
+                <p className="feed-item-excerpt">The skills that actually make someone exceptional at their job are almost never the ones you can teach.</p>
+                <span className="feed-item-cta">Read essay →</span>
+              </div>
+              <div className="feed-item" style={{ pointerEvents: 'none' }}>
+                <div className="feed-item-top">
+                  <span className="writing-card-tag">Career</span>
+                  <span className="feed-item-meta">October 2025 · 4 min read</span>
+                </div>
+                <h2 className="feed-item-title">Fake It Until You Become It</h2>
+                <p className="feed-item-excerpt">Overcoming imposter syndrome through deliberate practice — and how adopting confident behaviours can reshape personal identity.</p>
+                <span className="feed-item-cta">Read on Medium →</span>
+              </div>
+            </div>
+            <span className="comp-frame-label">.feed-item — internal essay / external Medium</span>
           </div>
         </section>
 

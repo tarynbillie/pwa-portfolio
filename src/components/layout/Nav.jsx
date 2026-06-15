@@ -1,5 +1,5 @@
 import { Link, NavLink, useMatch } from 'react-router-dom'
-import { Briefcase, Layers, User, Home, ChevronDown, FlaskConical } from 'lucide-react'
+import { Briefcase, Layers, User, Home, ChevronDown, FlaskConical, PenLine } from 'lucide-react'
 
 const workGroups = [
   {
@@ -77,6 +77,12 @@ export default function Nav() {
             </div>
 
             <NavLink
+              to="/writing"
+              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+            >
+              Writing
+            </NavLink>
+            <NavLink
               to="/components"
               className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
             >
@@ -130,6 +136,13 @@ export default function Nav() {
         >
           <Layers size={20} strokeWidth={1.75} />
           <span>Components</span>
+        </NavLink>
+        <NavLink
+          to="/writing"
+          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
+        >
+          <PenLine size={20} strokeWidth={1.75} />
+          <span>Writing</span>
         </NavLink>
         <NavLink
           to="/about"

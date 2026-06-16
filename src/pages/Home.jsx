@@ -46,7 +46,7 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-text">
               <span className="hero-badge">Product Manager</span>
-              <h1>Hi, I'm Taryn Reithofer</h1>
+              <h1>Hi, I'm <strong>Taryn Reithofer</strong></h1>
               <p>
                 This is my living portfolio of UI components, interactive prototypes, and real
                 projects — built to explore ideas, sharpen craft, and document the work.

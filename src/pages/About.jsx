@@ -199,7 +199,11 @@ function TestimonialsCarousel() {
             {TESTIMONIALS.map((t) => (
               <div key={t.name} className="testimonial-card" onClick={() => setSelected(t)}>
                 <div className="testimonial-quote-mark">"</div>
-                <p className="testimonial-text">{t.quote}</p>
+                <div className="testimonial-text-wrap">
+                  <p className="testimonial-text">{t.quote}</p>
+                  <div className="testimonial-fade" />
+                </div>
+                <span className="testimonial-expand">Read more →</span>
                 <div className="testimonial-footer">
                   <div className="testimonial-person">
                     {t.avatar
@@ -212,7 +216,6 @@ function TestimonialsCarousel() {
                       <span className="testimonial-relationship">{t.relationship}</span>
                     </div>
                   </div>
-                  <span className="testimonial-expand">Read full recommendation →</span>
                 </div>
               </div>
             ))}

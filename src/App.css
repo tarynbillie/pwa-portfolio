@@ -48,6 +48,7 @@
 
   /* Typography — Untitled UI type scale */
   --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Sora', system-ui, sans-serif;
   --text-sm: 0.875rem;    /* 14px / 20px lh */
   --text-md: 1rem;        /* 16px / 24px lh */
   --text-lg: 1.125rem;    /* 18px / 28px lh */
@@ -87,6 +88,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  h1, h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
 }
 
 /* ── Nav — shared ────────────────────────────────────────────── */
@@ -111,8 +117,9 @@
 }
 
 .nav-logo {
+  font-family: var(--font-display);
   font-size: var(--text-lg);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--fg);
   text-decoration: none;
   letter-spacing: -0.01em;
@@ -331,12 +338,11 @@
 /* ── Hero section ────────────────────────────────────────────── */
 
 .hero-wrap {
-  background-color: var(--color-mauve-50);
+  background-color: var(--color-white);
   background-image:
-    radial-gradient(ellipse 55% 70% at 4% 100%, rgba(196,168,210,0.28) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 55% at 96% 8%,  rgba(105,65,198,0.09) 0%,  transparent 65%),
+    radial-gradient(ellipse 90% 85% at 25% 50%, rgba(168,128,186,0.50) 0%, rgba(196,168,210,0.20) 50%, transparent 80%),
     radial-gradient(var(--color-mauve-200) 1px, transparent 1px);
-  background-size: auto, auto, 24px 24px;
+  background-size: auto, 24px 24px;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -395,12 +401,17 @@
 }
 
 .hero h1 {
+  font-family: var(--font-display);
   font-size: var(--display-xl);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.03em;
   color: var(--fg);
   max-width: 760px;
+}
+
+.hero h1 strong {
+  font-weight: 800;
 }
 
 .hero p {
@@ -790,8 +801,9 @@
 }
 
 .work-gate-heading {
+  font-family: var(--font-display);
   font-size: var(--display-sm);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--fg);
 }
@@ -1440,8 +1452,9 @@
 }
 
 .work-prototypes-heading {
+  font-family: var(--font-display);
   font-size: var(--display-md);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.2;
   color: var(--fg);
@@ -1545,10 +1558,10 @@
 
 /* Intro section — mauve tint + dot grid */
 .about-intro {
-  background-color: var(--color-mauve-50);
+  background-color: var(--color-white);
   background-image:
-    radial-gradient(ellipse 55% 70% at 4% 100%, rgba(196,168,210,0.28) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 55% at 96% 8%,  rgba(105,65,198,0.09) 0%,  transparent 65%),
+    radial-gradient(ellipse 70% 85% at 2% 100%,  rgba(168,128,186,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 98% 5%,   rgba(105,65,198,0.22) 0%, transparent 65%),
     radial-gradient(var(--color-mauve-200) 1px, transparent 1px);
   background-size: auto, auto, 24px 24px;
   padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 8vw, 8rem);
@@ -1560,8 +1573,9 @@
 }
 
 .about-intro-text h1 {
+  font-family: var(--font-display);
   font-size: var(--display-xl);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: var(--fg);
@@ -1780,6 +1794,11 @@
   user-select: none;
 }
 
+.testimonial-text-wrap {
+  position: relative;
+  flex: 1;
+}
+
 .testimonial-text {
   font-size: var(--text-sm);
   color: var(--muted);
@@ -1788,16 +1807,22 @@
   -webkit-line-clamp: 9;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  flex: 1;
+}
+
+.testimonial-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  background: linear-gradient(to bottom, transparent, var(--surface));
+  pointer-events: none;
 }
 
 .testimonial-footer {
   margin-top: auto;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
 }
 
 .testimonial-name {
@@ -1855,10 +1880,13 @@
 
 .testimonial-expand {
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--accent);
-  margin-top: 0.5rem;
   display: block;
+}
+
+.testimonial-card:hover .testimonial-expand {
+  text-decoration: underline;
 }
 
 /* Testimonial modal */
@@ -2166,7 +2194,7 @@
   }
 
   .about-contact {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1.5rem calc(4rem + 64px + max(env(safe-area-inset-bottom), 12px));
   }
 
   .about-contact-inner h2 {
@@ -3225,6 +3253,7 @@
 }
 
 .pg-title {
+  font-family: var(--font-display);
   font-size: var(--display-md);
   font-weight: 700;
   color: var(--fg);
@@ -3732,6 +3761,7 @@
 }
 
 .writing-hero h1 {
+  font-family: var(--font-display);
   font-size: var(--display-md);
   font-weight: 700;
   color: var(--fg);

@@ -179,6 +179,7 @@ function TestimonialModal({ testimonial, onClose }) {
 function TestimonialsCarousel() {
   const trackRef = useRef(null)
   const [selected, setSelected] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   function scroll(dir) {
     if (!trackRef.current) return
@@ -186,6 +187,19 @@ function TestimonialsCarousel() {
     const amount = card ? card.offsetWidth + 20 : trackRef.current.clientWidth * 0.8
     trackRef.current.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' })
   }
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+    function onScroll() {
+      const card = track.querySelector('.testimonial-card')
+      if (!card) return
+      const cardWidth = card.offsetWidth + 20
+      setActiveIndex(Math.round(track.scrollLeft / cardWidth))
+    }
+    track.addEventListener('scroll', onScroll, { passive: true })
+    return () => track.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <section className="about-testimonials">
@@ -223,6 +237,20 @@ function TestimonialsCarousel() {
           <button className="testimonial-arrow testimonial-arrow--right" onClick={() => scroll('right')} aria-label="Next">
             <ChevronRight size={20} strokeWidth={2} />
           </button>
+        </div>
+        <div className="testimonial-dots">
+          {TESTIMONIALS.map((_, i) => (
+            <button
+              key={i}
+              className={`testimonial-dot${i === activeIndex ? ' testimonial-dot--active' : ''}`}
+              onClick={() => {
+                const card = trackRef.current?.querySelector('.testimonial-card')
+                if (!card) return
+                trackRef.current.scrollTo({ left: i * (card.offsetWidth + 20), behavior: 'smooth' })
+              }}
+              aria-label={`Go to recommendation ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
       {selected && <TestimonialModal testimonial={selected} onClose={() => setSelected(null)} />}

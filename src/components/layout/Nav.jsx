@@ -1,5 +1,5 @@
 import { Link, NavLink, useMatch } from 'react-router-dom'
-import { Briefcase, Layers, User, Home, ChevronDown, FlaskConical, PenLine } from 'lucide-react'
+import { Briefcase, User, Home, ChevronDown, PenLine } from 'lucide-react'
 
 const workGroups = [
   {
@@ -123,20 +123,6 @@ export default function Nav() {
           <Briefcase size={20} strokeWidth={1.75} />
           <span>Work</span>
         </Link>
-        <NavLink
-          to="/playground"
-          className={({ isActive }) => `tab-link${isActive || playgroundMatch ? ' active' : ''}`}
-        >
-          <FlaskConical size={20} strokeWidth={1.75} />
-          <span>Playground</span>
-        </NavLink>
-        <NavLink
-          to="/components"
-          className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}
-        >
-          <Layers size={20} strokeWidth={1.75} />
-          <span>Components</span>
-        </NavLink>
         <NavLink
           to="/writing"
           className={({ isActive }) => isActive ? 'tab-link active' : 'tab-link'}

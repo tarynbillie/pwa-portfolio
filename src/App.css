@@ -1889,6 +1889,30 @@
   text-decoration: underline;
 }
 
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1.25rem;
+}
+
+.testimonial-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, width 0.2s;
+}
+
+.testimonial-dot--active {
+  width: 20px;
+  background: var(--accent);
+}
+
 /* Testimonial modal */
 .t-modal-overlay {
   position: fixed;
@@ -2142,7 +2166,7 @@
 @media (max-width: 768px) {
   .about-intro {
     padding: 3rem 1.5rem;
-    background-size: 20px 20px;
+    background-size: auto, auto, 20px 20px;
   }
 
   .about-intro-inner {
